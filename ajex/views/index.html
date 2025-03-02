@@ -9,9 +9,9 @@
 </head>
 <body>
     <h1 id="titleApp">Welcome Ajex!</h1>
-    <form action="" method="post" id="formCss">
+    <form action="{% 'url' formPost %}" method="post" class="formPost" id="formCss">
         {% csrf_token %}
-        <h3 id="formTitle">Adicione o seu arquivo excel ou csv neste botão abaixo:</h3>
+        <h3 id="formTitle">Add your excel or csv file in this button below:</h3>
         <label for="inputFile" class="inputFile">
             <input type="file" name="fileSheet" id="fileSheet" accept=".xlsx,.csv">
         </label>
