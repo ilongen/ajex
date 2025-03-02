@@ -1,0 +1,28 @@
+body {
+    background-color: #BD5FD6;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 75px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+#titleApp{
+    text-align: center;
+    color: white;
+}
+
+#formCss{
+    text-align: center;
+    color: white;
+    height: 75;
+    padding: 150px 10px 150px 10px;
+    border: 5px solid #D4ACFB;
+}
+
+#fileSheet{
+    text-align: center;
+    cursor: pointer;
+}
