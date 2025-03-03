@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-from template.collectData import collectData
-from template.manipulationData import dataSheet
+from ajex.template.collectData import collectData
+from ajex.template.classData import dataSheet
 # Create your views here.
 
 def index(request):
