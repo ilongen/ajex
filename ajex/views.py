@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from template.collectData import collectData
-from template.manipulationData import manipulationData
+from template.manipulationData import dataSheet
 # Create your views here.
 
 def index(request):
@@ -9,5 +9,5 @@ def index(request):
 def formPost(request):
     inputFile = request.POST.get("formPost")
     data = collectData(inputFile)
-    outputFile = manipulationData(data)
+    outputFile = dataSheet(data)
     return outputFile

@@ -1,8 +1,9 @@
 import pandas as pd
 import numpy as py
-def manipulationData(dataFrame):
-    """
-        rules:
+from collectData import collectData
+data = pd.DataFrame
+class dataSheet(data):
+    """        rules:
 
         Rule 1: Lack of key information, 
         save backup of that line 
@@ -14,6 +15,11 @@ def manipulationData(dataFrame):
         
         Rule 3: Blank rows in the spreadsheet, delete completely.
     """
-    dataRaw = dataFrame
-    outputFile= dataRaw
-    return outputFile
+    def isFirstColumnNull(args):
+        if data == "NaN":
+            print("Test")
+    def isContainMoreNan(args):
+        print("Null")
+    def BlankRows(args):
+        print("YEs")
+
