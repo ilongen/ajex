@@ -1,8 +1,5 @@
-import pandas as pd
-import numpy as py
-from collectData import collectData
-data = pd.DataFrame
-class dataSheet(data):
+from libs import *
+class analystData():
     """        rules:
 
         Rule 1: Lack of key information, 
@@ -15,11 +12,11 @@ class dataSheet(data):
         
         Rule 3: Blank rows in the spreadsheet, delete completely.
     """
-    def isFirstColumnNull(args):
+
+    def isFirstColumnNull(data):
         if data == "NaN":
             print("Test")
-    def isContainMoreNan(args):
+    def isContainMoreNan(data):
         print("Null")
-    def BlankRows(args):
+    def BlankRows(data):
         print("YEs")
-
