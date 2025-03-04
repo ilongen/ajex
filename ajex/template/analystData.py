@@ -1,5 +1,11 @@
 from libs import *
+<<<<<<< HEAD
 class analystData():
+=======
+from inputData import inputData
+class analystData():
+    data:pd.DataFrame
+>>>>>>> db3cde2 (msg: continue class and creating methods)
     """        rules:
 
         Rule 1: Lack of key information, 
