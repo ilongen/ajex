@@ -1,6 +1,5 @@
 from libs import *
 class inputData():
-<<<<<<< HEAD
     sheet = pd.DataFrame()
     date:time
     optionUser:str
@@ -10,7 +9,7 @@ class inputData():
 
     def convertInput(sheet:pd.DataFrame):
         print("Create options .csv or .xlsx")
-=======
+
     #sheet = requests.POST.get("formPost")
     date:time
     optionUser:str
@@ -25,4 +24,3 @@ class inputData():
         return sheet
     sheet = validationInput(sheet)
     sheetNew = convertInput(sheet)
->>>>>>> db3cde2 (msg: continue class and creating methods)
