@@ -1,5 +1,8 @@
 from libs import *
 from inputData import inputData
+
+data = inputData.nextStep
+
 class analystData():
     data:pd.DataFrame
     """        rules:
