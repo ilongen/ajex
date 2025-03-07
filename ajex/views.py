@@ -1,19 +1,12 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-<<<<<<< HEAD
-from ajex.template.classData import dataSheet
-=======
 from ajex.template.inputData import inputData
->>>>>>> db3cde2 (msg: continue class and creating methods)
+from django.http import HttpResponse
 # Create your views here.
 
 def index(request):
     return render(request,"index.html")
-def formPost(request):
-<<<<<<< HEAD
-    data = request.POST.get("formPost")
-=======
-    data = inputData
->>>>>>> db3cde2 (msg: continue class and creating methods)
+def formPost():
+    data = inputData.sheet
     outputFile = data
-    return outputFile
+    return HttpResponse("File: ",outputFile)
