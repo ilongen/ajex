@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.shortcuts import redirect
 from ajex.template.inputData import inputData
 from django.http import HttpResponse
 # Create your views here.

@@ -1,7 +1,4 @@
 from libs import *
-from django.http import request
-from django.http import HttpResponse
-
 class inputData():
     def validationInput(sheet:pd.DataFrame):
         if type(sheet) == ".xlsx" or type(sheet) == ".csv":
