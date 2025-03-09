@@ -20,5 +20,5 @@ from ajex import views
 
 urlpatterns = [
     path('', views.index,name='index'),
-    path('POST', views.formPost,name='formPost'),
+    path('download',views.fileOutput,name='download')
 ]

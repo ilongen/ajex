@@ -9,11 +9,16 @@
 </head>
 <body>
     <h1 id="titleApp">Welcome Ajex!</h1>
-    <form action="{% 'url' formPost %}" method="post" class="formPost" id="formCss">
+    <form action="{% url 'download' %}" method="post" name="formPost" class="formPost" id="formCss">
         {% csrf_token %}
         <h3 id="formTitle">Add your excel or csv file in this button below:</h3>
+        
         <label for="inputFile" class="inputFile">
-            <input type="file" name="fileSheet" id="fileSheet" accept=".xlsx,.csv">
+            <input type="file" name="fileSheet" id="fileSheet">
+        </label>
+        <label for="optionSelect">
+            <input type="radio" name="optionSelect" id="" value=".csv">csv 
+            <input type="radio" name="optionSelect" id="" value=".xlsx">excel
         </label>
         <p></p>
         <input type="submit" value="Enviar">
