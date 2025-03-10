@@ -1,4 +1,4 @@
-from userData import userData
+from ajex.template.userData import userData
 
 
 class manipulationData():
@@ -15,5 +15,5 @@ class manipulationData():
         
         Rule 3: Blank rows in the spreadsheet, delete completely.
     """
-    def dataExtrated():
+    def dataExtrated(args):
         print("test")

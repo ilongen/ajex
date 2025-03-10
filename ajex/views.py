@@ -15,12 +15,14 @@ def fileOutput(request):
     if request.method == "POST":
         sheet = request.POST.get("fileSheet")
         optionSelect = request.POST.get("optionSelect")
+        print(sheet,optionSelect,"- Debug one")
         try:
-            sheet = userData.optionUserSelected(sheet,optionSelect)
-            data = manipulationData.dataExtrated(sheet)
-            outputFile = outputData.sheet_newOutput(data)
-            return outputFile
+            print(sheet,optionSelect,"- Debug two")
+            sheetNew = userData.optionUserSelected(args=sheet,optionUser=optionSelect)
+            #data = manipulationData.dataExtrated(sheet)
+            #outputFile = outputData.sheet_newOutput(data)
+            print(sheetNew,"- Debug three")
+            return sheetNew
         except:
-            print("Error post not send")
-        print(sheet,optionSelect)
+            print("Error code")
     return render(request,"outputFile.html")
