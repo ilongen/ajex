@@ -1,7 +1,10 @@
 from django.shortcuts import render
-from ajex.template.inputData import inputData
 from django.shortcuts import redirect
 from django.http import HttpResponse
+from ajex.template.outputData import outputData
+from ajex.template.userData import userData
+from ajex.template.manipulationData import manipulationData
+
 # Create your views here.
 
 def index(request):
@@ -13,8 +16,10 @@ def fileOutput(request):
         sheet = request.POST.get("fileSheet")
         optionSelect = request.POST.get("optionSelect")
         try:
-            sheetValidated = inputData.validationInput(sheet)
-            analData = inputData.optionUserSelected(optionSelect,sheetValidated)
+            sheet = userData.optionUserSelected(sheet,optionSelect)
+            data = manipulationData.dataExtrated(sheet)
+            outputFile = outputData.sheet_newOutput(data)
+            return outputFile
         except:
             print("Error post not send")
         print(sheet,optionSelect)

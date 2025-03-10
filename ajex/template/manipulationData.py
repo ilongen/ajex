@@ -1,10 +1,8 @@
-from libs import *
-from inputData import inputData
+from userData import userData
 
-data = inputData.nextStep
 
-class analystData():
-    data:pd.DataFrame
+class manipulationData():
+    
     """        rules:
 
         Rule 1: Lack of key information, 
@@ -17,11 +15,5 @@ class analystData():
         
         Rule 3: Blank rows in the spreadsheet, delete completely.
     """
-
-    def isFirstColumnNull(data):
-        if data == "NaN":
-            print("Test")
-    def isContainMoreNan(data):
-        print("Null")
-    def BlankRows(data):
-        print("YEs")
+    def dataExtrated():
+        print("test")

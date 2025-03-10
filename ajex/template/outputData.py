@@ -1,3 +1,6 @@
-from libs import *
+from ajex.template.deletRow import deletRow
+
+
 class outputData():
-    print("Output")
+    def sheet_newOutput():
+        print("Test")
