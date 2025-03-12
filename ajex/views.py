@@ -19,6 +19,8 @@ def fileOutput(request):
         try:
             print(sheet,optionSelect,"- Debug two")
             sheetNew = userData.optionUserSelected(args=sheet,optionUser=optionSelect)
+            print(sheet,optionSelect,"- Debug test")
+
             #data = manipulationData.dataExtrated(sheet)
             #outputFile = outputData.sheet_newOutput(data)
             print(sheetNew,"- Debug three")
