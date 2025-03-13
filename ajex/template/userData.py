@@ -8,9 +8,9 @@ class userData():
             sheetCsv = pd.read_excel()
 
     def optionUserSelected(args,optionUser):
-        if optionUser in args:
+        if any(optionUser) in args:
             sheetRead = pd.read_csv(args)
             return sheetRead
-        elif optionUser in args:
+        elif any(optionUser) in args:
             sheetRead = pd.read_excel(args)
             return sheetRead    

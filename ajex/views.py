@@ -8,10 +8,6 @@ from ajex.template.manipulationData import manipulationData
 # Create your views here.
 
 def index(request):
-    
-    return render(request,"index.html")
-
-def fileOutput(request):
     if request.method == "POST":
         sheet = request.POST.get("fileSheet")
         optionSelect = request.POST.get("optionSelect")
@@ -19,12 +15,13 @@ def fileOutput(request):
         try:
             print(sheet,optionSelect,"- Debug two")
             sheetNew = userData.optionUserSelected(args=sheet,optionUser=optionSelect)
-            print(sheet,optionSelect,"- Debug test")
-
             #data = manipulationData.dataExtrated(sheet)
             #outputFile = outputData.sheet_newOutput(data)
-            print(sheetNew,"- Debug three")
-            return sheetNew
+
+            return sheetNew,redirect(request,'download')
         except:
             print("Error code")
+    return render(request,"index.html")
+
+def fileOutput(request):
     return render(request,"outputFile.html")
