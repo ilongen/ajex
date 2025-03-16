@@ -1,19 +1,16 @@
 import pandas as pd
-
-
+from django.http import HttpResponse
 class userData():
-    def  saveWebFile(args):
-        print("save file from web")
-
-
-    def optionUserSelected(args,optionUser):
-        print("debug one - ",args,optionUser)
+    def fileWeb():
+        print('Receive the web file')
+    def dataFrame(args):
         try:
-            if optionUser is ".xlsx":
-                sheetMod=pd.read_excel('')
+            if ".xlsx" in args:
+                sheetMod=pd.read_excel(args)
+                return sheetMod
             else:
-                sheetMod=pd.read_csv('')
-            return sheetMod
+                sheetMod=pd.read_csv(args)
+                return sheetMod
         except ValueError as vError:
             print(f"Is error: {vError}")
  
