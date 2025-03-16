@@ -2,15 +2,18 @@ import pandas as pd
 
 
 class userData():
-    def convertSheet(args):
-        if args is ".xlsx":
-            sheetCsv_orXlsx=[]
-            sheetCsv = pd.read_excel()
+    def  saveWebFile(args):
+        print("save file from web")
+
 
     def optionUserSelected(args,optionUser):
-        if any(optionUser) in args:
-            sheetRead = pd.read_csv(args)
-            return sheetRead
-        elif any(optionUser) in args:
-            sheetRead = pd.read_excel(args)
-            return sheetRead    
+        print("debug one - ",args,optionUser)
+        try:
+            if optionUser is ".xlsx":
+                sheetMod=pd.read_excel('')
+            else:
+                sheetMod=pd.read_csv('')
+            return sheetMod
+        except ValueError as vError:
+            print(f"Is error: {vError}")
+ 
