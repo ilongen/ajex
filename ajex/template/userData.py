@@ -12,5 +12,5 @@ class userData():
                 sheetMod=pd.read_csv(args)
                 return sheetMod
         except ValueError as vError:
-            print(f"Is error: {vError}")
+            print(f"Spreadsheet was not transformed into a dataframe, check the spreadsheet you sent! {vError}")
  
