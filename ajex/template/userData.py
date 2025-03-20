@@ -7,10 +7,15 @@ class userData():
         try:
             if ".xlsx" in args:
                 sheetMod=pd.read_excel(args)
-                return sheetMod
+                print(sheetMod)
+                msg="Spreadsheet Sucess"
+                return HttpResponse(msg)
             else:
+                print(args)
                 sheetMod=pd.read_csv(args)
-                return sheetMod
-        except ValueError as vError:
-            print(f"Spreadsheet was not transformed into a dataframe, check the spreadsheet you sent! {vError}")
- 
+                print(sheetMod)
+                msg="Spreadsheet Sucess"
+                return HttpResponse(msg)
+        except:
+            msg="Spreadsheet was not transformed into a dataframe, check the spreadsheet you sent!"
+            return HttpResponse(msg)

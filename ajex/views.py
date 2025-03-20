@@ -4,8 +4,7 @@ from ajex.template.userData import userData
 
 def index(request):
     if request.method == "POST":
-        sheet=request.POST.get('fileSheet')
-        optionSelect=request.POST.get('optionSelect')
+        sheet=request.FILES.get('fileSheet')
         try:
             sheetNew = userData.dataFrame(sheet)
             #data = manipulationData.dataExtrated(sheet)
