@@ -4,6 +4,7 @@ class userData():
     def fileWeb():
         print('Receive the web file')
     def dataFrame(args):
+        print(type(args))
         try:
             if ".xlsx" in args:
                 sheetMod=pd.read_excel(args)
