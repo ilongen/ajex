@@ -1,21 +1,18 @@
 import pandas as pd
 from django.http import HttpResponse
 class userData():
-    def fileWeb():
-        print('Receive the web file')
-    def dataFrame(args):
+    def dataFrame(args,kwargs):
         try:
-            if ".xlsx" in args:
+            if kwargs == ".xlsx":
                 sheetMod=pd.read_excel(args)
                 print(sheetMod)
-                msg="Spreadsheet Sucess"
+                msg="Sucess"
                 return HttpResponse(msg)
             else:
-                print(args)
                 sheetMod=pd.read_csv(args)
                 print(sheetMod)
-                msg="Spreadsheet Sucess"
+                msg="Sucess"
                 return HttpResponse(msg)
         except:
-            msg="Spreadsheet was not transformed into a dataframe, check the spreadsheet you sent!"
+            msg="Spreadsheet was not transformed into a dataframe, check the spreadsheet you sent! Intern Server Erro"
             return HttpResponse(msg)

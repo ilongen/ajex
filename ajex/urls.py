@@ -19,6 +19,5 @@ from django.urls import path
 from ajex import views
 
 urlpatterns = [
-    path('', views.index,name='index'),
-    path('download',views.fileOutput,name='download')
+    path('', views.index,name='index')
 ]

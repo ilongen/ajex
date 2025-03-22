@@ -9,16 +9,16 @@
 </head>
 <body>
     <h1 id="titleApp">Welcome Ajex!</h1>
-    <form action="" method="POST" name="formPost" class="formPost" id="formCss" enctype="multipart/form-data">
+    <form action="" method="POST" name="formPost" class="formPost" id="formData" enctype="multipart/form-data">
         {% csrf_token %}
         <h3 id="formTitle">Add your excel or csv file in this button below:</h3>
         <label for="inputFile" class="inputFile">
-            <input type="file" name="fileSheet" id="styleSheet" accept=".xlsx,.csv">
+            <input type="file" name="fileSheet" id="fileSheet" accept=".xlsx,.csv">
             <input type="radio" name="optionSelect" id="" value=".csv">format: csv 
             <input type="radio" name="optionSelect" id="" value=".xlsx">format: excel
         </label>
         <p></p>
-        <input type="submit" value="Enviar">
+        <input type="submit" value="Enviar" onclick="validationForms()">
     </form>
     <script src="{% static '/js/script.js' %}"></script>
 </body>
