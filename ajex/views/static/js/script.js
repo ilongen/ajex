@@ -4,12 +4,13 @@ function validationForms() {
     if (fileSheet.endsWith(".xlsx")) {
         let msg = "Arquivo enviado com sucesso!";
         console.log(msg);
-        return { bool: true, typeFile: ".xlsx" };
+        document.getElementById('nameSheet').value = fileSheet
+        return { bool: true };
     }
     else if (fileSheet.endsWith(".csv")) {
         let msg = "Arquivo enviado com sucesso!";
         console.log(msg);
-        return { bool: true, typeFile: ".csv" };
+        return { bool: true };
     }
     else {
         window.alert("ERRO DE ENVIAR ARQUIVO, ESSE ARQUIVO NÃO É COMPATIVEL");

@@ -6,7 +6,8 @@ import json
 def index(request):
     if request.method == "POST":
         sheet=request.FILES.get('fileSheet')
-        typeSheet=".xlsx"
+        typeSheet=request.POST.get('nameSheet')
+        print(typeSheet)
         try:
             sheetNew = userData.dataFrame(sheet,typeSheet)
             #data = manipulationData.dataExtrated(sheet)

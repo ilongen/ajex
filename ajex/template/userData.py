@@ -3,7 +3,7 @@ from django.http import HttpResponse
 class userData():
     def dataFrame(args,kwargs):
         try:
-            if kwargs == ".xlsx":
+            if ".xlsx" in kwargs:
                 sheetMod=pd.read_excel(args)
                 print(sheetMod)
                 msg="Sucess"
