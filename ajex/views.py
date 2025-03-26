@@ -10,7 +10,7 @@ def index(request):
         print(typeSheet)
         try:
             sheetNew = userData.dataFrame(sheet,typeSheet)
-            #data = manipulationData.dataExtrated(sheet)
+            sheetManipulation = userData.manipulationData(sheetNew)
             #outputFile = outputData.sheet_newOutput(data)
             return sheetNew
         except:
