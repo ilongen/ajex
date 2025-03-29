@@ -5,12 +5,18 @@ class userData():
         try:
             if ".xlsx" in kwargs:
                 sheetReceived=pd.read_excel(args)
-                return sheetReceived
+                print(sheetReceived)
+                return HttpResponse(sheetReceived)
             else:
                 sheetReceived=pd.read_csv(args)
-                return sheetReceived
+                print(sheetReceived)
+                return HttpResponse(sheetReceived)
         except:
             msg="Spreadsheet was not transformed into a dataframe, check the spreadsheet you sent! Intern Server Erro"
             return HttpResponse(msg)
     def manipulationData(param):
-        print("Working")
+        n_row, n_columns = param.shape()
+        for i in range(n_row):
+            for j in range(n_columns):
+                value=param.iloc[i,j]
+
