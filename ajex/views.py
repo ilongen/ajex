@@ -12,7 +12,7 @@ def index(request):
             sheetNew = userData.dataFrame(sheet,typeSheet)
             sheetManipulation = userData.manipulationData(sheetNew)
             #outputFile = outputData.sheet_newOutput(data)
-            return sheetNew
+            return sheetManipulation
         except:
             print("Error code")
     return render(request,"index.html")
