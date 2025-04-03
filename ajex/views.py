@@ -11,7 +11,7 @@ def index(request):
         print(typeSheet)
         try:
             sheetNew = userData.dataFrame(sheet,typeSheet)
-            sheetManipulation = manipulationData.DeletCellNA(sheetNew)
+            sheetManipulation = manipulationData.deletRow_isNull(sheetNew)
             #outputFile = outputData.sheet_newOutput(data)
             return sheetManipulation
         except:

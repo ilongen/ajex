@@ -1,5 +1,6 @@
+import pandas as pd
 class manipulationData():
-    def DeletCellNA(param):
+    def deletRow_isNull(param):
         n_row, n_columns = param.shape()
         dictList=[]
         porcColumn = n_columns*0.60 # %            
@@ -13,3 +14,6 @@ class manipulationData():
                         "value":value
                     }
                     dictList.append(dictData)
+                    for z in range(len(dictList)):
+                        print(dictList)
+                        # Working for now on the part
