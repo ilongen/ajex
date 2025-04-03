@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from ajex.template.userData import userData
+from ajex.template.manipulationData import manipulationData
 import json
 # Create your views here.
 
@@ -10,7 +11,7 @@ def index(request):
         print(typeSheet)
         try:
             sheetNew = userData.dataFrame(sheet,typeSheet)
-            sheetManipulation = userData.manipulationData(sheetNew)
+            sheetManipulation = manipulationData.DeletCellNA(sheetNew)
             #outputFile = outputData.sheet_newOutput(data)
             return sheetManipulation
         except:
