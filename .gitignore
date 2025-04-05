@@ -1,1 +1,4 @@
 /jupiter
+__pycache__
+template/__pycache__
+ajex/tests.py
