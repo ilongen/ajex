@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from ajex.template.userData import userData
 from ajex.template.manipulationData import manipulationData
+from django.http import HttpResponse
 import json
 # Create your views here.
 
@@ -9,12 +10,11 @@ def index(request):
         sheet=request.FILES.get('fileSheet')
         typeSheet=request.POST.get('nameSheet')
         print(typeSheet)
-        try:
-            sheetNew = userData.dataFrame(sheet,typeSheet)
-            sheetManipulation = manipulationData.deletRow_isNull(sheetNew)
-            #outputFile = outputData.sheet_newOutput(data)
-            return sheetManipulation
-        except:
-            print("Error code")
+        
+        sheetNew = userData.dataFrame(sheet,typeSheet)
+        sheetManipulation = manipulationData.dictIsNA(sheetNew)
+        print(sheetManipulation)
+        return HttpResponse("Sucesso")
+       
     return render(request,"index.html")
 
