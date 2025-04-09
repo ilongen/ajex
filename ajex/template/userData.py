@@ -1,7 +1,7 @@
 import pandas as pd
 from django.http import HttpResponse
 class userData():
-    def dataFrame(args,kwargs):
+    def get_dataFrame(args,kwargs):
         try:
             if ".xlsx" in kwargs:
                 sheetReceived=pd.read_excel(args)

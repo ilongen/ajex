@@ -11,8 +11,8 @@ def index(request):
         typeSheet=request.POST.get('nameSheet')
         print(typeSheet)
         
-        sheetNew = userData.dataFrame(sheet,typeSheet)
-        sheetManipulation = manipulationData.dictIsNA()
+        sheetNew = userData.get_dataFrame(sheet,typeSheet)
+        sheetManipulation = manipulationData.__init__(df=sheetNew)
         print(sheetManipulation)
         return HttpResponse("Sucesso")
        
