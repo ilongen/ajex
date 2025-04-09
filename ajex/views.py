@@ -12,7 +12,7 @@ def index(request):
         print(typeSheet)
         
         sheetNew = userData.dataFrame(sheet,typeSheet)
-        sheetManipulation = manipulationData.dictIsNA(sheetNew)
+        sheetManipulation = manipulationData.dictIsNA()
         print(sheetManipulation)
         return HttpResponse("Sucesso")
        
