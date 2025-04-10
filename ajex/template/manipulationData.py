@@ -22,6 +22,18 @@ class manipulationData:
         return self.listDictNA
     def deletCell(self):
         self.porcColumn_min = self.n_columns * 0.60
-        range_list = self.listDictNA
-        for z in range(len(range_list)):
-            print(range_list)
+        countRow=0
+        row_now = None
+        self.rowDelet = []
+        for item in self.listDictNA:
+            row=item["row"]
+            if row != row_now:
+                row_now=row
+                countRow=0
+            else:
+                print("na mesma linha")
+            countRow +=1
+            if countRow > self.porcColumn_min and row not in self.rowDelet:
+                self.rowDelet.append(row)
+        self.df.drop(index=self.rowDelet)
+        return self.df

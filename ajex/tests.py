@@ -1,16 +1,24 @@
-from django.test import TestCase
-
+import unittest
 import pandas as pd
+from template.manipulationData import manipulationData 
 
+class TestManipulationData(unittest.TestCase):
+    def test_delete_cell(self):
+        # 1. Criar um DataFrame com NA
+        df = pd.DataFrame({
+            'A': [None, 1, None],
+            'B': [None, 2, None],
+            'C': [None, 3, 4],
+        })
 
-sheet = pd.read_excel(r'/home/iagolongen/Documents/39.268.3960001-98/PLANILHA_ESTOQUE_COMPLETO_LJ.xlsx')
-n_row, n_columns = sheet.shape
-dictNA={}
-porcColumn_min = n_columns*0.60 # %            
-for i in range(n_row):
-    for j in range(n_columns):
-        value=sheet.iloc[i,j]
-        if pd.isna(value)==True:
-           dictNA={"row":i,"column":j,"value":value}
-           if dictNA['row'] == i:
-                print(dictNA)
+        # 2. Criar o objeto e rodar os métodos
+        manip = manipulationData(df.copy())
+        manip.valueCell_isna()
+        result = manip.deletCell()
+
+        # 3. Verificar se a linha 0 foi deletada (tinha 100% NA)
+        self.assertEqual(len(result), 2)
+        self.assertNotIn(0, result.index)
+
+if __name__ == '__main__':
+    unittest.main()
