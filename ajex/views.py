@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from ajex.template.userData import userData
+from ajex.template.userData import get_dataFrame
 from ajex.template.manipulationData import manipulationData
+import pandas as pd
 from django.http import HttpResponse
 import json
 # Create your views here.
@@ -11,9 +12,11 @@ def index(request):
         typeSheet=request.POST.get('nameSheet')
         print(typeSheet)
         
-        sheetNew = userData.get_dataFrame(sheet,typeSheet)
-        sheetManipulation = manipulationData.__init__(df=sheetNew)
-        print(sheetManipulation)
+        sheetNew = get_dataFrame(sheet,typeSheet)
+        df = pd.DataFrame(sheetNew)
+        sheetManipulation = manipulationData(df=df)
+        sheetManipulation.valueCell_isna()
+        sheetManipulation.deletCell()
         return HttpResponse("Sucesso")
        
     return render(request,"index.html")
