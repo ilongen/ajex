@@ -1,7 +1,6 @@
 /jupiter
-__pycache__
-ajex/template/__pycache__
+ajex/__pycache__
 ajex/tests.py
 connectionDB.py
 ajex/template/test
-ajex/__pycache__
+ajex/template/__pycache__
