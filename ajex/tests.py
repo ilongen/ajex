@@ -9,6 +9,12 @@ class TestManipulationData(unittest.TestCase):
             'A': [None, 1, None],
             'B': [None, 2, None],
             'C': [None, 3, 4],
+            'D': [None, 3, 4],
+            'E': [None, None, None],
+            'F': [None, None, None],
+            'G': [None, 3, None],
+            'H': [None, None, 4],
+
         })
 
         # 2. Criar o objeto e rodar os métodos

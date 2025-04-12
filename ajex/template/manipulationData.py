@@ -5,6 +5,7 @@ class manipulationData:
         self.df = pd.DataFrame(df)  
         self.n_row,self.n_columns = df.shape
         self.listDictNA = []
+        self.listnotNA=[]
     
     def valueCell_isna(self):
         self.porcColumn_min = self.n_columns * 0.60
@@ -18,10 +19,10 @@ class manipulationData:
                     if pd.isna(value):
                         self.listDictNA.append({"row": i, "column": j})
                 except:
-                    print("NOT IS NA")
+                    self.listnotNA.append({"row": i,"column": j,"value": value})
         return self.listDictNA
     def deletCell(self):
-        self.porcColumn_min = self.n_columns * 0.60
+        self.porcColumn_min = self.n_columns * 0.80
         countRow=0
         row_now = None
         self.rowDelet = []
@@ -30,10 +31,12 @@ class manipulationData:
             if row != row_now:
                 row_now=row
                 countRow=0
-            else:
-                print("na mesma linha")
             countRow +=1
-            if countRow > self.porcColumn_min and row not in self.rowDelet:
+            if countRow >= self.porcColumn_min and row not in self.rowDelet:
                 self.rowDelet.append(row)
-        self.df.drop(index=self.rowDelet)
+                print(self.rowDelet)
+        self.df.drop(index=self.rowDelet,inplace=True)
         return self.df
+    def outputSheet(self):
+        outputSheet=self.df
+        outputSheet.to_excel(excel_writer=r"/home/iagolongen/Documents/ajex/ajex/template/test/test.xlsx",sheet_name="excel_cleaned")

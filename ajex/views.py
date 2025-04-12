@@ -17,6 +17,7 @@ def index(request):
         sheetManipulation = manipulationData(df=df)
         sheetManipulation.valueCell_isna()
         sheetManipulation.deletCell()
+        sheetManipulation.outputSheet()
         return HttpResponse("Sucesso")
        
     return render(request,"index.html")
