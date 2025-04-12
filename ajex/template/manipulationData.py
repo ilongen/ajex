@@ -34,7 +34,6 @@ class manipulationData:
             countRow +=1
             if countRow >= self.porcColumn_min and row not in self.rowDelet:
                 self.rowDelet.append(row)
-                print(self.rowDelet)
         self.df.drop(index=self.rowDelet,inplace=True)
         return self.df
     def outputSheet(self):
