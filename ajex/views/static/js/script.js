@@ -20,6 +20,7 @@ function validationForms() {
 const form = document.querySelector('form[name="formPost"]');
 form.addEventListener("submit", function(event) {
     event.preventDefault();
+    document.getElementById("loading_overlay").style.display = "flex";
 
     const validated = validationForms();
     const url = window.location.href;
@@ -45,9 +46,11 @@ form.addEventListener("submit", function(event) {
             document.body.appendChild(link);
             link.click(); // Força o download
             document.body.removeChild(link);
+            document.getElementById("loading_container").style.display = "none";
         })
         .catch(error => {
             console.error("Erro na requisição:", error);
+            document.getElementById("loading_container").style.display = "none";
         });
     }
 });
