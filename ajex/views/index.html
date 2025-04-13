@@ -15,6 +15,9 @@
         <label for="inputFile" class="inputFile">
             <input type="file" name="fileSheet" id="fileSheet" accept=".xlsx,.csv">
             <input type="hidden" name="nameSheet" id="nameSheet">
+            <div id="progress-container" style="display: none;">
+                <div id="progress-bar" style="width: 0%; background-color: green; height: 20px;"></div>
+            </div>
         </label>
         <p></p>
         <input type="submit" value="Enviar" onclick="validationForms()">

@@ -1,4 +1,6 @@
 import pandas as pd
+from django.http import FileResponse
+import io
 
 class manipulationData:
     def __init__(self,df):
@@ -36,6 +38,3 @@ class manipulationData:
                 self.rowDelet.append(row)
         self.df.drop(index=self.rowDelet,inplace=True)
         return self.df
-    def outputSheet(self):
-        outputSheet=self.df
-        outputSheet.to_excel(excel_writer=r"/home/iagolongen/Documents/ajex/ajex/template/test/test.xlsx",sheet_name="excel_cleaned")
