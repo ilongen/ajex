@@ -24,7 +24,7 @@ class manipulationData:
                     self.listnotNA.append({"row": i,"column": j,"value": value})
         return self.listDictNA
     def deletCell(self):
-        self.porcColumn_min = self.n_columns * 0.80
+        self.porcColumn_min = self.n_columns * 0.95
         countRow=0
         row_now = None
         self.rowDelet = []

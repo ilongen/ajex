@@ -14,13 +14,7 @@
         <h3 id="formTitle">Add your excel or csv file in this button below:</h3>
         <label for="inputFile" class="inputFile">
             <input type="file" name="fileSheet" id="fileSheet" accept=".xlsx,.csv">
-            <input type="hidden" name="nameSheet" id="nameSheet">
-            <div id="loading_overlay">
-                <div class="loading_content">
-                  <img src="{% static 'img/loading.gif' %}" alt="Carregando...">
-                  <p>Wait, we're suing...</p>
-                </div>
-            </div>
+            <input type="hidden" name="nameSheet" id="nameSheet">        
         </label>
         <p></p>
         <input type="submit" value="Enviar" onclick="validationForms()">

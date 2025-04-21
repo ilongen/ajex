@@ -20,9 +20,9 @@ def index(request):
         sheetManipulation.valueCell_isna()
         dfOutput = sheetManipulation.deletCell()
         buffer = io.BytesIO()
-        dfOutput.to_excel(excel_writer=buffer,index=False,sheet_name="sheetNew")
+        dfOutput.to_excel(excel_writer=buffer,index=True,sheet_name="sheetNew")
         buffer.seek(0)
-        return FileResponse(buffer,as_attachment=True,filename="data.xlsx",content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+        return FileResponse(buffer,as_attachment=True,filename=f"{typeSheet}.xlsx",content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 
     return render(request,"index.html")
 
