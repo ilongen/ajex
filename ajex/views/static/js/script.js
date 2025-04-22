@@ -23,11 +23,11 @@ form.addEventListener("submit", function(event) {
     document.getElementById("loading_overlay").style.display = "flex";
 
     const validated = validationForms();
-    const url = window.location.href;
+    const urlGet = 'api/post_data'
     const formData = new FormData(form);
 
     if (validated.bool) {
-        fetch(url, {
+        fetch(urlGet, {
             method: "POST",
             body: formData,
         })
