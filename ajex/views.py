@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from api.user_data.userData import userData
-from api.mainpulation_data.manipulationData import manipulationData
+from api.manipulation_data.manipulationData import manipulationData
 import pandas as pd
 import io
+import json
 from django.http import FileResponse,JsonResponse
 # Create your views here.
 
@@ -20,8 +21,8 @@ def user_data(request):
         sheet=request.FILES.get('fileSheet')
         typeSheet=request.POST.get('nameSheet')
         sheetNew = userData(sheet,typeSheet)
-        data_json = sheetNew.fillna('').to_dict(orient='records')
-        return JsonResponse({"dataFrame":data_json})
+        sheetNew.to_json(sheetNew)
+        return JsonResponse({"dataFrame":sheetNew})
     
 """
    
