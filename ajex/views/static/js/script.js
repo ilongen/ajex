@@ -21,11 +21,11 @@ form.addEventListener("submit", function(event) {
     const formData = new FormData(form);
 
     if (validated.bool) {
-        post_data();        
+        post_data(formData);        
    }
 });
 
-async function post_data() {
+async function post_data(formData) {
     const urlGet = 'api/user_data';
     const tokenCSRF = document.getElementById('csrf-token').value
     try {
@@ -34,7 +34,6 @@ async function post_data() {
         if (response.ok){
             console.log("Sucess",formData)
             const json_data = await response.json();
-            console.log(json_data);
         }
         else {
             throw new Error(`response status: ${response.status}`);

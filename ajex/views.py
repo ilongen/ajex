@@ -12,7 +12,7 @@ def index(request):
 
 """
     API: user_data
-    modified: 22/04/2025 | 08:07 PM
+    modified: 23/04/2025 | 09:15 PM
     describe: This api works on receiving data and preparing for other api/backend services.
 
 """
@@ -21,8 +21,7 @@ def user_data(request):
         sheet=request.FILES.get('fileSheet')
         typeSheet=request.POST.get('nameSheet')
         sheetNew = userData(sheet,typeSheet)
-        sheetNew.to_json(sheetNew)
-        return JsonResponse({"dataFrame":sheetNew})
+        return sheetNew
     
 """
    
@@ -31,8 +30,8 @@ def user_data(request):
     describe: This api works in the data manipulation photar, it will work with any data that is delivered it, is still being worked and increasing in dimension
 
 """
-def manipulation_data(data_json):
-        df = pd.DataFrame(data_json)
+def manipulation_data():
+        df = pd.DataFrame()
         sheetManipulation = manipulationData(df=df)
         sheetManipulation.valueCell_isna()
         dfOutput = sheetManipulation.deletCell()
