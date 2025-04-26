@@ -2,13 +2,9 @@ function validationForms() {
     const fileSheet = document.getElementById('fileSheet').value;
 
     if (fileSheet.endsWith(".xlsx")) {
-        let msg = "Arquivo enviado com sucesso!";
-        console.log(msg);
         document.getElementById('nameSheet').value = fileSheet;
         return { bool: true };
     } else if (fileSheet.endsWith(".csv")) {
-        let msg = "Arquivo enviado com sucesso!";
-        console.log(msg);
         return { bool: true };
     } else {
         window.alert("ERRO DE ENVIAR ARQUIVO, ESSE ARQUIVO NÃO É COMPATIVEL");
@@ -20,37 +16,35 @@ function validationForms() {
 const form = document.querySelector('form[name="formPost"]');
 form.addEventListener("submit", function(event) {
     event.preventDefault();
-    document.getElementById("loading_overlay").style.display = "flex";
 
     const validated = validationForms();
-    const url = window.location.href;
     const formData = new FormData(form);
 
     if (validated.bool) {
-        fetch(url, {
-            method: "POST",
-            body: formData,
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Erro no envio.");
-            }
-            return response.blob(); 
-        })
-        .then(blob => {
-            console.log("Arquivo Blob recebido:", blob);  
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = "data.xlsx";
-            link.style.display = 'none';
-            document.body.appendChild(link);
-            link.click(); // Força o download
-            document.body.removeChild(link);
-            document.getElementById("loading_container").style.display = "none";
-        })
-        .catch(error => {
-            console.error("Erro na requisição:", error);
-            document.getElementById("loading_container").style.display = "none";
-        });
-    }
+        post_data(formData);        
+   }
 });
+
+async function post_data(formData) {
+    const urlGet = 'api/user_data';
+    const tokenCSRF = document.getElementById('csrf-token').value
+    try {
+        const response = await fetch(urlGet,{
+            method: "POST",body:formData, headers:{'X-CSRFToken': tokenCSRF}});
+        if (response.ok){
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'data.xlsx'; // nome do arquivo baixado
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+        }
+        else {
+            throw new Error(`response status: ${response.status}`);
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
