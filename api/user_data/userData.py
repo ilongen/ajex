@@ -1,7 +1,7 @@
 import pandas as pd
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 
-def get_dataFrame(args,kwargs):
+def userData(args,kwargs):
     try:
         if ".xlsx" in kwargs:
             sheetReceived=pd.read_excel(args)
@@ -11,6 +11,6 @@ def get_dataFrame(args,kwargs):
             return sheetReceived
     except:
         msg="Spreadsheet was not transformed into a dataframe, check the spreadsheet you sent! Intern Server Erro"
-        return HttpResponse(msg)
+        return HttpResponse({"messageError":msg})
 
                     

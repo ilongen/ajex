@@ -1,6 +1,4 @@
 import pandas as pd
-from django.http import FileResponse
-import io
 
 class manipulationData:
     def __init__(self,df):
@@ -8,6 +6,9 @@ class manipulationData:
         self.n_row,self.n_columns = df.shape
         self.listDictNA = []
         self.listnotNA=[]
+    
+    def insight_dataframe(self):
+        self.df
     
     def valueCell_isna(self):
         self.porcColumn_min = self.n_columns * 0.60
