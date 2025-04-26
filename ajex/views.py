@@ -21,7 +21,8 @@ def user_data(request):
         sheet=request.FILES.get('fileSheet')
         typeSheet=request.POST.get('nameSheet')
         sheetNew = userData(sheet,typeSheet)
-        return sheetNew
+        sheetManipulation=manipulation_data_local(param=sheetNew)
+        return sheetManipulation
     
 """
    
@@ -30,9 +31,8 @@ def user_data(request):
     describe: This api works in the data manipulation photar, it will work with any data that is delivered it, is still being worked and increasing in dimension
 
 """
-def manipulation_data():
-        df = pd.DataFrame()
-        sheetManipulation = manipulationData(df=df)
+def manipulation_data_local(param):
+        sheetManipulation = manipulationData(df=param)
         sheetManipulation.valueCell_isna()
         dfOutput = sheetManipulation.deletCell()
         buffer = io.BytesIO()

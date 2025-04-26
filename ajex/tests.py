@@ -1,6 +1,6 @@
 import unittest
 import pandas as pd
-from api.mainpulation_data.manipulationData import manipulationData 
+from api.manipulation_data.manipulationData import manipulationData 
 
 class TestManipulationData(unittest.TestCase):
     def test_delete_cell(self):

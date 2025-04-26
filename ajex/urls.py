@@ -21,5 +21,4 @@ from ajex import views
 urlpatterns = [
     path('', views.index,name='index'),
     path('api/user_data',views.user_data),
-    path('api/manipulation_data',views.manipulation_data)
 ]

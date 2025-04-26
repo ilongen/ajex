@@ -1,6 +1,4 @@
 import pandas as pd
-from django.http import FileResponse
-import io
 
 class manipulationData:
     def __init__(self,df):

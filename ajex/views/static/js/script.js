@@ -32,8 +32,14 @@ async function post_data(formData) {
         const response = await fetch(urlGet,{
             method: "POST",body:formData, headers:{'X-CSRFToken': tokenCSRF}});
         if (response.ok){
-            console.log("Sucess",formData)
-            const json_data = await response.json();
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'data.xlsx'; // nome do arquivo baixado
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
         }
         else {
             throw new Error(`response status: ${response.status}`);
