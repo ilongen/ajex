@@ -4,5 +4,5 @@ ajex/tests.py
 connectionDB.py
 ajex/template/test
 ajex/template/__pycache__
-api/manipulation_data/__pycache__
+api/services/__pycache__
 api/user_data/__pycache__

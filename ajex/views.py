@@ -1,10 +1,8 @@
 from django.shortcuts import render
 from api.user_data.userData import userData
-from api.manipulation_data.manipulationData import manipulationData
-import pandas as pd
+from api.services.manipulationData import manipulationData
 import io
-import json
-from django.http import FileResponse,JsonResponse
+from django.http import FileResponse
 # Create your views here.
 
 def index(request):
@@ -12,7 +10,7 @@ def index(request):
 
 """
     API: user_data
-    modified: 23/04/2025 | 09:15 PM
+    modified: 26/04/2025 | 09:42 PM
     describe: This api works on receiving data and preparing for other api/backend services.
 
 """
@@ -24,13 +22,6 @@ def user_data(request):
         sheetManipulation=manipulation_data_local(param=sheetNew)
         return sheetManipulation
     
-"""
-   
-    API: manipulation_data
-    modified: 22/04/2025 | 08:05 PM
-    describe: This api works in the data manipulation photar, it will work with any data that is delivered it, is still being worked and increasing in dimension
-
-"""
 def manipulation_data_local(param):
         sheetManipulation = manipulationData(df=param)
         sheetManipulation.valueCell_isna()
