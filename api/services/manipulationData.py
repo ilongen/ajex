@@ -6,27 +6,26 @@ class manipulationData:
         self.n_row,self.n_columns = df.shape
         self.listDictNA = []
         self.listnotNA=[]
-    
-    def insight_dataframe(self):
-        dfInsight=self.df
-        return dfInsight
-    
+        self.list_rowExcept=[]
+
     def valueCell_isna(self):
         self.porcColumn_min = self.n_columns * 0.60
         self.n_row,self.n_columns
-        print(self.df[:0])
-        print(self.n_columns,self.n_row)
         for i in range(self.n_row):
             for j in range(self.n_columns):
                 value=self.df.iloc[i,j]
                 try:
                     if pd.isna(value):
                         self.listDictNA.append({"row": i, "column": j})
+                        if i not in self.list_rowExcept:
+                            self.list_rowExcept.append(i)
                 except:
                     self.listnotNA.append({"row": i,"column": j,"value": value})
+        
         return self.listDictNA
+    
     def deletCell(self):
-        self.porcColumn_min = self.n_columns * 0.95
+        self.porcColumn_min = self.n_columns * 0.02
         countRow=0
         row_now = None
         self.rowDelet = []
@@ -40,3 +39,8 @@ class manipulationData:
                 self.rowDelet.append(row)
         self.df.drop(index=self.rowDelet,inplace=True)
         return self.df
+    
+    def dataframe_expection(self):
+        valid_indice = [i for i in self.list_rowExcept if i < len(self.df)]
+        df_backup = self.df.iloc[valid_indice]
+        return df_backup
