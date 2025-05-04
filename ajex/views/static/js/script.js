@@ -36,7 +36,7 @@ async function post_data(formData) {
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'data.xlsx'; // nome do arquivo baixado
+            a.download = 'data_compact.zip'; // nome do arquivo baixado
             document.body.appendChild(a);
             a.click();
             a.remove();
