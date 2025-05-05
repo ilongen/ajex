@@ -8,9 +8,10 @@
     <title>Ajex</title>
 </head>
 <body>
-    <h1 id="titleApp">Welcome Ajex!</h1>
+    
     <form action="" method="POST" name="formPost" class="formPost" id="formData" enctype="multipart/form-data">
         {% csrf_token %}
+        <h1 id="titleApp">Welcome to Ajex</h1>
         <h3 id="formTitle">Add your excel or csv file in this button below:</h3>
         <label for="inputFile" class="inputFile">
             <input type="file" name="fileSheet" id="fileSheet" accept=".xlsx,.csv">

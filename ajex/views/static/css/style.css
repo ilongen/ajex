@@ -1,5 +1,5 @@
 body {
-    background-color: #BD5FD6;
+    background-color: #D84FCE;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -10,16 +10,16 @@ body {
 
 
 #titleApp{
-    text-align: center;
-    color: white;
+    color: black;
 }
 
 #formData{
     text-align: center;
-    color: white;
+    color: black;
     height: 75;
     padding: 150px 10px 150px 10px;
     border: 5px solid #D4ACFB;
+    background-color: whitesmoke;
 }
 
 #fileSheet{
