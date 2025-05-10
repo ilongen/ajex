@@ -3,7 +3,7 @@ import pandas as pd
 class manipulationData:
     def __init__(self,df):
         self.df = pd.DataFrame(df)  
-        self.n_row,self.n_columns = df.shape
+        self.n_row,self.n_columns = self.df.shape
         self.listDictNA = []
         self.listnotNA=[]
         self.list_rowExcept=[]
