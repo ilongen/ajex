@@ -4,8 +4,19 @@ services:
   web:
     build: .
     command: gunicorn project.wsgi:application --bind 0.0.0.0:8000
-    ports:
-      - "8000:8000"
-    restart: always
+    volumes:
+      - .:/home/ajex
+    expose:
+      - "8000"  
     env_file:
       - .env
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./staticfiles:/home/ajex/staticfiles  
+    depends_on:
+      - web
