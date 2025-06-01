@@ -2,7 +2,6 @@ function validationForms() {
     const fileSheet = document.getElementById('fileSheet').value;
 
     if (fileSheet.endsWith(".xlsx")) {
-        document.getElementById('nameSheet').value = fileSheet;
         return { bool: true };
     } else if (fileSheet.endsWith(".csv")) {
         return { bool: true };
@@ -21,7 +20,7 @@ form.addEventListener("submit", function(event) {
     const formData = new FormData(form);
 
     if (validated.bool) {
-        post_data(formData);        
+        post_data(formData);
    }
 });
 
@@ -36,7 +35,7 @@ async function post_data(formData) {
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'data_compact.zip'; // nome do arquivo baixado
+            a.download = 'data.zip'; // nome do arquivo baixado
             document.body.appendChild(a);
             a.click();
             a.remove();
