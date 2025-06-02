@@ -9,7 +9,7 @@
 Ajex simplifies the initial steps of data analysis by cleaning and validating your dataset. Here's what it does:
 
 1. **Structured Data Input**  
-   Accepts spreadsheets in `.csv` or `.xlsx` format.
+   Accepts spreadsheets in `.csv`, `.xls` or `.xlsx` format.
 
 2. **Automated Cleaning Process**  
    - Scans all columns for **null values** and **empty rows**.  
