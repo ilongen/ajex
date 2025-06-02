@@ -41,6 +41,16 @@ The name reflects its core mission: *adjusting Excel-based data for practical us
 
 ---
 
+## 💰 Pricing Model
+
+- Ajex operates on a freemium model:
+
+- Free Tier: Use Ajex at no cost with limited usage quotas to clean and prepare your data.
+
+- Premium Tier: Unlock additional features, higher limits, and priority processing by subscribing after reaching the free usage threshold.
+
+---
+
 ## 👨‍💻 Developed By
 
 **Devlongen** – Passionate about automation, data, and building tools that simplify complex tasks.
