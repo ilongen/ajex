@@ -14,11 +14,11 @@
         <h1 id="titleApp">Welcome to Ajex</h1>
         <h3 id="formTitle">Add your excel or csv file in this button below:</h3>
         <label for="inputFile" class="inputFile">
-            <input type="file" name="fileSheet" id="fileSheet" accept=".xlsx,.csv">
+            <input type="file" name="fileSheet" id="fileSheet" accept=".xlsx,.csv,.xls">
             <input type="hidden" id="csrf-token" value="{{ csrf_token }}">
         </label>
         <p></p>
-        <input type="submit" value="Enviar" onclick="validationForms()">
+        <input type="submit" value="Submit" onclick="validationForms()">
     </form>
     <script src="{% static 'js/script.js' %}"></script>
 </body>

@@ -26,4 +26,5 @@ class UserData:
             msg = "Spreadsheet was not transformed into a dataframe, check the spreadsheet you sent! Intern Server Erro"
             return JsonResponse({"messageError": msg})
         finally:
+            print("Success read file")
             pass

@@ -31,8 +31,8 @@ def user_data(request):
         sheet_manipulation.value_cells_isnan()
         sheet_manipulation.delet_cell()
         sheet_manipulation.dataframe_exception()
-        sheet_manipulation.download_zip()
-        return JsonResponse({'message':'success'})
+        download_file = ManipulationData.download_zip(self=sheet_manipulation)
+        return download_file
     else:
         JsonResponse({"error":"Method not allowed"})
     return None
