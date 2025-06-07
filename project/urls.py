@@ -17,8 +17,9 @@ Including another URLconf
 
 from django.urls import path
 from project import views
-
+from api.services.UsersController import SignIn
 urlpatterns = [
     path('', views.index,name='index'),
     path('api/user_data',views.user_data),
+    path('api/sign_in/',SignIn.sign_in())
 ]

@@ -3,7 +3,7 @@ __pycache__/
 *.pyo
 *.pyd
 *.db
-.env
+config.env
 .git
 .gitignore
 Dockerfile
