@@ -6,6 +6,6 @@ ajex/template/test
 ajex/template/__pycache__
 api/services/__pycache__
 api/user_data/__pycache__
-config.env
+.env
 project/__pycache__
 sql

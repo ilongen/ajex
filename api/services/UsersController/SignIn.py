@@ -1,10 +1,11 @@
 from django.http import JsonResponse
 
-"""
-    TODO:
-    Fazer a criação da api pelo django rest, tentar criar pelo menos o caminho
-"""
+
 class SignIn:
+    """
+        TODO:
+        Fazer a criação da api pelo django rest, tentar criar pelo menos o caminho
+    """
     def __int__(self):
         self.email = ''
         self.password = ''

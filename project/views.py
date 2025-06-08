@@ -1,9 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import render
-
 from api.services.ManipulationData import ManipulationData
 from api.services.UserData import UserData
-
 
 # Create your views here.
 
