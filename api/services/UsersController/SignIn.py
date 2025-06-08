@@ -1,30 +1,34 @@
-from django.http import JsonResponse
+from multiprocessing import connection
 
+import psycopg2
+from django.contrib import postgres
+from rest_framework.response import Response
+from decouple import config
 
-class SignIn:
-    """
-        TODO:
-        Fazer a criação da api pelo django rest, tentar criar pelo menos o caminho
-    """
-    def __int__(self):
-        self.email = ''
-        self.password = ''
-        self.username = ''
-    def sign_in(self):
-        email = self.email.strip()
-        password = self.password.strip()
-        username = self.username.strip()
-        return email,password,username
+class UserSignIn:
+    def __init__(self, user_name, user_password, user_email):
+        self.user_name = user_name
+        self.user_password = user_password
+        self.user_email = user_email
+
     def rules(self):
-        password = self.password
-        length = len(password)
-        if length < 6:
-            JsonResponse({"status":"failed","message":"Password must be at least 8 characters"})
+        if len(self.user_password) < 8:
+            return Response({'error': 'Password is too short'}, status=400)
+        elif '@' not in self.user_email or len(self.user_email) < 5:
+            return Response({'error': 'Invalid email'}, status=400)
+        elif len(self.user_name) < 3:
+            return Response({'error': 'Username is too short'}, status=400)
         else:
-            JsonResponse({"status":"success"})
-        email = self.email
-        length = len(email)
-        if length < 50:
-            JsonResponse({"status":"failed","message":"Email must be at least 50 characters"})
-        else:
-            JsonResponse({"status":"success"})
+            return Response({'success': 'All fields are valid'}, status=200)
+    def insert_data_in_db(self):
+        sql="INSERT INTO users (user_name, user_password, user_email) VALUES (%s, %s, %s)"
+        conn = psycopg2.connect(
+            host=config('DB_HOST'),
+            user=config('DB_USER'),
+            password=config('DB_PASSWORD'),
+            database=config('DB_NAME'),
+            port=config('DB_PORT')
+        )
+        cursor = conn.cursor()
+        cursor.execute(sql, (self.user_name, self.user_password, self.user_email))
+        cursor.close()

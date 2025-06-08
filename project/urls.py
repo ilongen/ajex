@@ -17,11 +17,11 @@ Including another URLconf
 
 from django.urls import path,include
 from project import views
-from rest_framework import routers
 
 
 urlpatterns = [
-    path('', views.index,name='index'),
+    path('test_using', views.index,name='index'),
     path('api/user_data',views.user_data),
+    path('api/post_user_data', include('api.urls')),
 
 ]
