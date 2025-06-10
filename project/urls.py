@@ -20,8 +20,9 @@ from project import views
 
 
 urlpatterns = [
-    path('test_using', views.index,name='index'),
-    path('api/user_data',views.user_data),
-    path('api/post_user_data', include('api.urls')),
+    path('', views.index,name='index'),
+    path('api/', include('api.urls')),
+
+    path('models_ready/', views.models_ready,name="models_ready"),
 
 ]

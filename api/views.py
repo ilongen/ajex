@@ -1,11 +1,16 @@
 import datetime
 
+from django.http import JsonResponse
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .services.UsersController.SignIn import UserSignIn
+from .services.UsersController.SignUp import UserSignUp
+from api.services.ManipulationData import ManipulationData
+from api.services.UserData import UserData
+
 @api_view(['POST'])
-def post_user_data(request):
+def create_user(request):
     user_name = request.data.get('user_name')
     user_password = request.data.get('user_password')
     user_email = request.data.get('user_email')
@@ -24,3 +29,32 @@ def post_user_data(request):
         return user.insert_data_in_db()
     else:
         return user.rules()
+
+@api_view(['GET'])
+def validated_user(request):
+    user_name = request.data.get('user_name')
+    user_password = request.data.get('user_password')
+
+    user = UserSignIn(user_name, user_password)
+
+def model_yarth(request):
+    # Request received from frontend
+    if request.method == "POST":
+
+        # POST REQUEST SUCESS
+        file=request.POST.get('fileSheet') # File request
+        name_file = file.name
+        file = file.read()
+        df_transform = UserData(user_data_name=name_file,user_data_file=file)
+        df_optimized = df_transform.get_data()
+        # DATAFRAME READ, NOW CLEAR DATA
+        sheet_manipulation=ManipulationData(df=df_optimized)
+        sheet_manipulation.value_cells_isnan()
+        sheet_manipulation.delet_cell()
+        sheet_manipulation.dataframe_exception()
+        download_file = ManipulationData.download_zip(self=sheet_manipulation)
+        return download_file
+    else:
+        JsonResponse({"error":"Method not allowed"})
+    return None
+
