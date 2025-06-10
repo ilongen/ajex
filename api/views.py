@@ -1,14 +1,23 @@
+# TIME
 import datetime
 
+
+# JSON/RESPONSE RESULTS
 from django.http import JsonResponse
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+
+# DIRS FOR API USERS
 from .services.UsersController.SignIn import UserSignIn
 from .services.UsersController.SignUp import UserSignUp
-from api.services.ManipulationData import ManipulationData
-from api.services.UserData import UserData
 
+# DIRS FOR API MODELS READY
+from api.services.ModelsReady import UserData
+from api.services.ModelsReady.Yarth import ManipulationData
+
+# START API USERS
+# ---------------------------------------------------------------------
 @api_view(['POST'])
 def create_user(request):
     user_name = request.data.get('user_name')
@@ -37,6 +46,8 @@ def validated_user(request):
 
     user = UserSignIn(user_name, user_password)
 
+# END API USERS
+# ---------------------------------------------------------------------
 def model_yarth(request):
     # Request received from frontend
     if request.method == "POST":

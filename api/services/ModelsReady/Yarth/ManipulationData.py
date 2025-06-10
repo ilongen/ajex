@@ -1,7 +1,7 @@
 import pandas as pd
 import io
 import zipfile
-
+from rest_framework.response import Response
 from django.http import StreamingHttpResponse
 
 
@@ -27,9 +27,9 @@ class ManipulationData:
                     else:
                         self.listnot_na.append({"row": i, "column": j, "value": value})
                 except:
-                    print("ERROR")
+                    return Response({"messageError": "Value cell isn't NaN!"})
                 finally:
-                    print("SUCCESS SEPARATED VALUE IS NA")
+                    pass
         return self.listDictNA
     
     def delet_cell(self):
