@@ -1,19 +1,22 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create Account</title>
 </head>
 <body>
 <form action="">
     <label for="username">Username</label>
     <input type="text" name="username" id="username">
-    password
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email">
     <label for="password">Password</label>
     <input type="password" name="password" id="password">
-    <button type="submit">Create Account</button>
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email">
+    <label for="email_confirm">Confirm Email</label>
+    <input type="email" name="email_confirm" id="email_confirm">
+    <button type="submit" onclick="data_singup()">Create Account</button>
 </form>
+<script src="{% static 'js/sign-up.js' %}"></script>
 </body>
 </html>

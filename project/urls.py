@@ -25,4 +25,8 @@ urlpatterns = [
 
     path('models_ready/', views.models_ready,name="models_ready"),
 
+    path('pages/sign-in',views.signin,name="signin"),
+
+    path('pages/sign-up',views.signup,name="signup"),
+
 ]

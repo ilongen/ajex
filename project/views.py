@@ -10,3 +10,14 @@ def index(request):
 def models_ready(request):
     template_name = "models-ready.html"
     return render(request,template_name)
+
+
+def signin(request):
+    template_name = 'sign-in.html'
+    return render(request,template_name)
+
+
+def signup(request):
+    template_name = 'sign-up.html'
+    return render(request,template_name)
+
