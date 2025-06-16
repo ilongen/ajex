@@ -33,7 +33,7 @@ def create_user(request):
     user_first_name = user_first_name.strip() if user_first_name else ''
     user_last_name = user_last_name.strip() if user_last_name else ''
 
-    user = UserSignIn(user_name, user_password, user_email, user_first_name, user_last_name, data_joined)
+    user = UserSignUp(user_name, user_password, user_email, user_first_name, user_last_name, data_joined)
     if user.rules().status_code == status.HTTP_200_OK:
         return user.insert_data_in_db()
     else:
