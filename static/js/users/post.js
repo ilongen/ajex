@@ -87,7 +87,6 @@ const handleSignup = async () => {
         setTimeout(() => {
             window.location.href = '/dashboard'; // Adjust URL as needed
         }, 2000);
-
     } catch (error) {
         showNotification('Connection error: Unable to reach the server. Please check your internet connection.');
         console.error('Signup error:', error);
