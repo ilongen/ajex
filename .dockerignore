@@ -6,6 +6,4 @@ __pycache__/
 .env
 .git
 .gitignore
-Dockerfile
-docker-compose.yml
 *.sqlite3
