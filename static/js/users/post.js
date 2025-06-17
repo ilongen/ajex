@@ -40,6 +40,7 @@ const validateForm = (formData) => {
     return true;
 };
 
+
 const handleSignup = async () => {
     const formData = {
         username: document.getElementById('username').value.trim(),
