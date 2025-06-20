@@ -79,14 +79,14 @@ const handleSignup = async () => {
             if (result.detail && result.detail.includes('auth_user_username_key')) {
                 showNotification('This username is already taken. Please choose another.');
             } else {
-                showNotification(result.message || 'Failed to create account. Please try again.');
+                showNotification(result.message || 'Failed to create your account. Some of the provided information is already registered. Please modify it and try again.');
             }
             return;
         }
 
         showNotification('Account created successfully! Redirecting...', 'success');
         setTimeout(() => {
-            window.location.href = '/dashboard'; // Adjust URL as needed
+            window.location.href = '/pages/sign-in'; // Adjust URL as needed
         }, 2000);
     } catch (error) {
         showNotification('Connection error: Unable to reach the server. Please check your internet connection.');

@@ -18,6 +18,7 @@ from api.services.ModelsReady.Yarth import ManipulationData
 
 # START API USERS
 # ---------------------------------------------------------------------
+# SIGNUP --------------------------------
 @api_view(['POST'])
 def create_user(request):
     user_name = request.data.get('user_name')
@@ -38,14 +39,21 @@ def create_user(request):
         return user.insert_data_in_db()
     else:
         return user.rules()
-
-@api_view(['GET'])
+# END SIGNUP
+#--------------------------
+# SIGNIN --------------------------------
+@api_view(['POST'])
 def validated_user(request):
     user_name = request.data.get('user_name')
     user_password = request.data.get('user_password')
 
     user = UserSignIn(user_name, user_password)
-
+    if user.exists_user().status_code == status.HTTP_200_OK:
+        return user.exists_user()
+    else:
+        return user.exists_user()
+# END SIGNUP
+#--------------------------
 # END API USERS
 # ---------------------------------------------------------------------
 def model_yarth(request):
