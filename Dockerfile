@@ -1,15 +1,24 @@
-FROM python:3.13-slim
+FROM python:3.13
 
-WORKDIR /ajex/
+RUN mkdir /ajex
+
+WORKDIR /ajex
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1 
 
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt .
-RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip
 
-COPY . .
+COPY requirements.txt /ajex/
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN python manage.py runserver
+COPY . /ajex/
+
+EXPOSE 8000
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
