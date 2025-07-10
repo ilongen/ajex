@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/v1/users/signin', {
+            const response = await fetch('http://0.0.0.1:8000/api/v1/users/signin', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
