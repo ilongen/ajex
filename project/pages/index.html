@@ -1,0 +1,188 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/index/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Ajex</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-links" style="--i: 1;">
+                <a href="#models" style="--i: 1;">Models</a>
+                <a href="#about" style="--i: 2;">About Us</a>
+                <a href="#why-ajex" style="--i: 3;">Why Ajex</a>
+                <a href="#docs" style="--i: 4;">Docs</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="/pages/sign-in" class="auth-btn sign-in-btn">Sign In</a>
+                <a href="/pages/sign-up" class="auth-btn sign-up-btn">Sign Up</a>
+            </div>
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Search content...">
+            </div>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Clean Data, Clear Insights</h1>
+                <p class="hero-subtitle">Transform your datasets with Ajex’s automated cleaning and validation, delivering analysis-ready data in seconds.</p>
+                <a href="/pages/sign-up" class="hero-cta">Get Started Now</a>
+            </div>
+            <div class="hero-image">
+                <img src="{% static 'images/pexels-goumbik-577195.jpg' %}" alt="Data Visualization Dashboard">
+            </div>
+        </section>
+
+        <section class="use-cases" id="use-cases">
+            <h2 class="section-title">Where Ajex Can Be Used</h2>
+            <p class="section-subtitle">Ajex streamlines data preparation for various industries and applications.</p>
+            <div class="use-case-grid">
+                <div class="use-case-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Data Science</h3>
+                    <p>Prepare datasets for machine learning models by removing null values and ensuring data consistency.</p>
+                </div>
+                <div class="use-case-item">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Business Analytics</h3>
+                    <p>Clean and validate sales, customer, or operational data for accurate reporting and decision-making.</p>
+                </div>
+                <div class="use-case-item">
+                    <i class="fas fa-database"></i>
+                    <h3>Data Integration</h3>
+                    <p>Ensure clean data for seamless integration into databases, ETL pipelines, or data warehouses.</p>
+                </div>
+                <div class="use-case-item">
+                    <i class="fas fa-flask"></i>
+                    <h3>Research</h3>
+                    <p>Process experimental or survey data to eliminate errors and prepare for statistical analysis.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits" id="benefits">
+            <h2 class="section-title">Benefits of Using Ajex</h2>
+            <p class="section-subtitle">Discover why Ajex is the preferred choice for data professionals.</p>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Fast Processing</h3>
+                    <p>Clean and validate data in seconds with our automated tools.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure</h3>
+                    <p>Your data is protected with industry-standard encryption.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-smile"></i>
+                    <h3>User-Friendly</h3>
+                    <p>Intuitive interface designed for users of all skill levels.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Scalable</h3>
+                    <p>Handle datasets of any size, from small files to enterprise-level data.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-to-use" id="how-to-use">
+            <h2 class="section-title">Get Started with Ajex in 3 Simple Steps</h2>
+            <p class="section-subtitle">Quickly clean and validate your data with our intuitive process.</p>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <span class="step-number">1</span>
+                    <h3>Upload Your Data</h3>
+                    <p>Import your spreadsheet in .csv, .xls, or .xlsx format.</p>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">2</span>
+                    <h3>Automatic Cleaning</h3>
+                    <p>Ajex scans for null values and empty rows, ensuring fully populated, valid data.</p>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">3</span>
+                    <h3>Download or Integrate</h3>
+                    <p>Receive a clean spreadsheet or integrate directly into your workflows.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="help-channels" id="docs">
+            <h2 class="section-title">Need Help? We're Here for You</h2>
+            <p class="section-subtitle">Explore our resources or reach out for support.</p>
+            <div class="help-grid">
+                <div class="help-item">
+                    <i class="fas fa-book"></i>
+                    <h3>Documentation</h3>
+                    <p>Comprehensive guides and tutorials to master Ajex.</p>
+                    <a href="/docs" class="help-cta">Read Docs</a>
+                </div>
+                <div class="help-item">
+                    <i class="fas fa-question-circle"></i>
+                    <h3>FAQs</h3>
+                    <p>Find answers to common questions about using Ajex.</p>
+                    <a href="/docs/faq" class="help-cta">View FAQs</a>
+                </div>
+                <div class="help-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Contact Support</h3>
+                    <p>Get personalized assistance from our support team.</p>
+                    <a href="/support" class="help-cta">Contact Us</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="content-list" id="content-list">
+            <div class="content-item">Product Overview</div>
+            <div class="content-item">About Our Team</div>
+            <div class="content-item">Why Choose Us</div>
+            <div class="content-item">Documentation Guide</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="#models">Models</a>
+                <a href="#about">About Us</a>
+                <a href="#why-ajex">Why Ajex</a>
+                <a href="#docs">Docs</a>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Stay Updated</h3>
+                <p>Subscribe to our newsletter for the latest updates.</p>
+                <div class="newsletter-input">
+                    <input type="email" placeholder="Enter your email">
+                    <button class="newsletter-btn">Subscribe</button>
+                </div>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Ajex. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/index/script.js' %}"></script>
+</body>
+</html>

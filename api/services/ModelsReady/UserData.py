@@ -1,5 +1,7 @@
 import pandas as pd
 from django.http import JsonResponse
+from rest_framework import status
+from rest_framework.response import Response
 from jinja2.utils import Joiner
 
 
@@ -21,10 +23,9 @@ class UserData:
                 return sheet_received
             else:
                 msg="Not type support"
-                return JsonResponse(msg, status=404)
+                return Response(msg,status=status.HTTP_400_BAD_REQUEST)
         except:
             msg = "Spreadsheet was not transformed into a dataframe, check the spreadsheet you sent! Intern Server Erro"
-            return JsonResponse({"messageError": msg})
+            return Response({"messageError": msg})
         finally:
-            print("Success read file")
             pass

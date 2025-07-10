@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - Ajex</title>
+    <link rel="stylesheet" href="{% static 'css/users/sign-up.css' %}">
+
+</head>
+<body>
+    <div class="notification" id="notification"></div>
+    <main class="container">
+        <section class="welcome-section">
+            <h1>Welcome to Ajex!</h1>
+            <p>Use ready-made models, create custom ones to refactor your data, or request in-depth analysis of your structured data.</p>
+        </section>
+        <section class="form-section">
+            <form id="signup-form" onsubmit="event.preventDefault(); handleSignup();">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="email_confirm">Confirm Email</label>
+                    <input type="email" id="email_confirm" name="email_confirm" placeholder="Confirm your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                    <input type="text" id="first_name" name="first_name" placeholder="Enter your first name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name</label>
+                    <input type="text" id="last_name" name="last_name" placeholder="Enter your last name" required>
+                </div>
+                <button type="submit" class="submit-btn">Create Account</button>
+            </form>
+        </section>
+    </main>
+    <script src="{% static 'js/users/insert_user.js' %}"></script>
+</body>
+</html>

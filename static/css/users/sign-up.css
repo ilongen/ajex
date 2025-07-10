@@ -1,0 +1,233 @@
+/* Reset and global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Body with industrial gradient background */
+body {
+    background: linear-gradient(135deg, #6B3FA0 0%, #2B2D42 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+    /* Subtle noise texture for industrial feel */
+    background-image: linear-gradient(135deg, #6B3FA0 0%, #2B2D42 100%), url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4"%3E%3Cpath fill="%23ffffff" fill-opacity="0.05" d="M1 3h1v1H1zm2-2h1v1H3z"/%3E%3C/svg%3E');
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    max-width: 300px;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    /* Subtle shadow for depth */
+    box-shadow: 0 2px 8px rgba(43, 45, 66, 0.2);
+}
+
+.notification.show {
+    /* Show notification with full opacity and no offset */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.notification.error {
+    /* Dark gray background with matte gold border for error notifications */
+    background: #2B2D42;
+    border: 1px solid #D4A017;
+    color: #F5F5F5; /* Off-white text for high contrast (~15:1 ratio) */
+}
+
+.notification.success {
+    /* Dark gray background with soft cyan border for success notifications */
+    background: #2B2D42;
+    border: 1px solid #40C4FF;
+    color: #F5F5F5; /* Off-white text */
+}
+
+/* Main container styles */
+.container {
+    display: flex;
+    max-width: 900px;
+    width: 100%;
+    background: #F5F5F5; /* Off-white for clean content area */
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(43, 45, 66, 0.4); /* Stronger shadow for industrial depth */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+    /* Enhanced lift effect on hover */
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(43, 45, 66, 0.5);
+}
+
+/* Welcome section styles */
+.welcome-section {
+    flex: 1;
+    padding: 2rem;
+    background: #F5F5F5; /* Off-white background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.welcome-section h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #2B2D42; /* Dark gray for primary text */
+    margin-bottom: 1rem;
+    /* Subtle letter spacing for modern look */
+    letter-spacing: -0.025em;
+}
+
+.welcome-section p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #6B3FA0; /* Purple for branding and contrast */
+}
+
+/* Form section styles */
+.form-section {
+    flex: 1;
+    padding: 2rem;
+    background: #F5F5F5; /* Off-white background */
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #2B2D42; /* Dark gray for labels */
+    margin-bottom: 0.5rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.form-group label:hover {
+    /* Purple on hover with slight scale for interactivity */
+    color: #6B3FA0;
+    transform: scale(1.02);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #2B2D42; /* Dark gray border */
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #2B2D42; /* Dark gray text */
+    background: #F5F5F5; /* Off-white input background */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #6B3FA0; /* Purple border on focus */
+    box-shadow: 0 0 0 3px rgba(107, 63, 160, 0.15); /* Stronger purple glow for focus */
+    background: #FFFFFF; /* Pure white on focus for clarity */
+}
+
+.form-group input::placeholder {
+    color: #6B7280; /* Neutral gray for placeholders */
+}
+
+/* Submit button styles */
+.submit-btn {
+    width: 100%;
+    padding: 0.85rem;
+    background: #6B3FA0; /* Primary purple for call-to-action */
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #F5F5F5; /* Off-white text */
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    /* Subtle metallic gradient for industrial feel */
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1));
+}
+
+.submit-btn:hover {
+    /* Darker purple with lift effect */
+    background: #5A3391;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(107, 63, 160, 0.3);
+}
+
+.submit-btn:active {
+    /* Reset transform and shadow on click */
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Animation for container entrance */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+/* Responsive design for tablets and smaller */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        max-width: 100%;
+        /* Adjusted shadow for smaller screens */
+        box-shadow: 0 4px 16px rgba(43, 45, 66, 0.3);
+    }
+
+    .welcome-section, .form-section {
+        padding: 1.5rem;
+    }
+
+    .welcome-section h1 {
+        font-size: 1.5rem;
+    }
+
+    .welcome-section p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Responsive design for mobile */
+@media (max-width: 480px) {
+    .container {
+        padding: 0.5rem;
+        /* Lighter shadow for mobile */
+        box-shadow: 0 2px 12px rgba(43, 45, 66, 0.2);
+    }
+
+    .welcome-section, .form-section {
+        padding: 1rem;
+    }
+
+    .form-group input, .submit-btn {
+        font-size: 0.85rem;
+    }
+
+    .notification {
+        max-width: 90%;
+        font-size: 0.85rem;
+        /* Smaller shadow for mobile */
+        box-shadow: 0 1px 6px rgba(43, 45, 66, 0.2);
+    }
+}
