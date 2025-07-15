@@ -1,16 +1,21 @@
-import psycopg2
 from rest_framework.response import Response
-from decouple import config
 from django.contrib.auth.hashers import make_password
+from api.database.DatabaseController import DatabaseController
+from datetime import datetime
+
 
 class UserSignUp:
-    def __init__(self, user_name, user_password, user_email, user_first_name, user_last_name, data_joined):
+    def __init__(self, user_name, user_password, user_email, user_first_name='', user_last_name='', date_joined=None):
         self.user_name = user_name.strip() if user_name else None
         self.user_password = user_password.strip() if user_password else None
         self.user_email = user_email.strip() if user_email else None
         self.user_first_name = user_first_name.strip() if user_first_name else ''
         self.user_last_name = user_last_name.strip() if user_last_name else ''
-        self.data_joined = data_joined
+        self.date_joined = datetime.now()
+        self.updated_at = datetime.now()
+        self.last_login = None
+        self.is_active = True
+        self.is_verified = False
 
     def rules(self):
         if not self.user_password or len(self.user_password) < 8:
@@ -22,35 +27,29 @@ class UserSignUp:
         return Response({'success': 'All fields are valid'}, status=200)
 
     def insert_data_in_db(self):
-        sql = """
-        INSERT INTO public.auth_user
-        (password, username, first_name, last_name, email, date_joined)
-        VALUES (%s, %s, %s, %s, %s, %s);
+        insert_query = """
+            INSERT INTO users.authenticate
+            (username, "password", email, is_active, is_verified, created_at, updated_at, last_login)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s);
         """
         hashed_password = make_password(self.user_password)
 
         values = (
-            hashed_password,
             self.user_name,
-            self.user_first_name,
-            self.user_last_name,
+            hashed_password,
             self.user_email,
-            self.data_joined
+            self.is_active,
+            self.is_verified,
+            self.date_joined,
+            self.updated_at,
+            self.last_login
         )
 
         try:
-            conn = psycopg2.connect(
-                host=config('DB_HOST'),
-                user=config('DB_USER'),
-                password=config('DB_PASSWORD'),
-                database=config('DB_NAME'),
-                port=config('DB_PORT')
-            )
-            cursor = conn.cursor()
-            cursor.execute(sql, values)
-            conn.commit()
-            cursor.close()
-            conn.close()
+            controller = DatabaseController()
+            controller.connection_database()
+            controller.exec_insert_sql(sql=insert_query,values=values)
+            controller.close_connection()
         except Exception as e:
             return Response({'error': str(e)}, status=500)
         return Response({'success': 'User inserted successfully'}, status=201)
