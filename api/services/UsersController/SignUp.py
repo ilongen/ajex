@@ -52,4 +52,4 @@ class UserSignUp:
             controller.close_connection()
         except Exception as e:
             return Response({'error': str(e)}, status=500)
-        return Response({'success': 'User inserted successfully'}, status=201)
+        return Response({'success': 'User created successfully'}, status=201)
