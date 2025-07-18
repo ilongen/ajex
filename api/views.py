@@ -1,6 +1,5 @@
 # TIME
-import datetime
-
+from datetime import datetime
 
 # JSON/RESPONSE RESULTS
 from django.http import JsonResponse
@@ -20,22 +19,22 @@ from api.services.ModelsReady.Yarth import ManipulationData
 # SIGNUP --------------------------------
 @api_view(['POST'])
 def create_user(request):
-    user_name = request.data.get('user_name')
-    user_password = request.data.get('user_password')
-    user_email = request.data.get('user_email')
-    user_first_name = request.data.get('user_first_name')
-    user_last_name = request.data.get('user_last_name')
-    data_joined = datetime.datetime.now()
+    user_name = request.data.get('username')
+    user_password = request.data.get('password')
+    user_email = request.data.get('email')
+    date_joined = datetime.now()
 
     user_name = user_name.strip() if user_name else None
     user_password = user_password.strip() if user_password else None
     user_email = user_email.strip() if user_email else None
-    user_first_name = user_first_name.strip() if user_first_name else ''
-    user_last_name = user_last_name.strip() if user_last_name else ''
 
-    user = UserSignUp(user_name, user_password, user_email, user_first_name, user_last_name, data_joined)
+    user = UserSignUp(user_name, user_password, user_email, date_joined)
+    
     if user.rules().status_code == status.HTTP_200_OK:
-        return user.insert_data_in_db()
+        if user.validation_user_in_db().status_code == status.HTTP_202_ACCEPTED:
+            return user.insert_data_in_db()
+        else:
+            return user.validation_user_in_db()
     else:
         return user.rules()
 # END SIGNUP
@@ -43,14 +42,11 @@ def create_user(request):
 # SIGNIN --------------------------------
 @api_view(['POST'])
 def validated_user(request):
-    user_name = request.data.get('user_name')
-    user_password = request.data.get('user_password')
-
-    user = UserSignIn(user_name, user_password)
-    if user.exists_user().status_code == status.HTTP_200_OK:
-        return user.exists_user()
-    else:
-        return user.exists_user()
+    user_name = request.data.get('username')
+    user_password = request.data.get('password')
+    user = UserSignIn(username=user_name, password=user_password)
+    response = user.exists_user()
+    return response
 # END SIGNUP
 #--------------------------
 # END API USERS
