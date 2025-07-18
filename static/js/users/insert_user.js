@@ -9,9 +9,9 @@ const showNotification = (message, type = 'error') => {
 };
 
 const validateForm = (formData) => {
-    const { username, password, email, email_confirm, first_name, last_name } = formData;
+    const { username, password, email, email_confirm} = formData;
     
-    if (!username || !password || !email || !email_confirm || !first_name || !last_name) {
+    if (!username || !password || !email || !email_confirm) {
         showNotification('Please fill in all required fields.');
         return false;
     }
@@ -46,9 +46,7 @@ const handleSignup = async () => {
         username: document.getElementById('username').value.trim(),
         password: document.getElementById('password').value.trim(),
         email: document.getElementById('email').value.trim(),
-        email_confirm: document.getElementById('email_confirm').value.trim(),
-        first_name: document.getElementById('first_name').value.trim(),
-        last_name: document.getElementById('last_name').value.trim()
+        email_confirm: document.getElementById('email_confirm').value.trim()
     };
 
     if (!validateForm(formData)) {
@@ -65,11 +63,9 @@ const handleSignup = async () => {
                 'Accept': 'application/json',
             },
             body: JSON.stringify({
-                user_name: formData.username,
-                user_password: formData.password,
-                user_email: formData.email,
-                user_first_name: formData.first_name,
-                user_last_name: formData.last_name
+                username: formData.username,
+                password: formData.password,
+                email: formData.email
             })
         });
 
@@ -79,14 +75,14 @@ const handleSignup = async () => {
             if (result.detail && result.detail.includes('auth_user_username_key')) {
                 showNotification('This username is already taken. Please choose another.');
             } else {
-                showNotification(result.message || 'Failed to create your account. Some of the provided information is already registered. Please modify it and try again.');
+                showNotification(result.message || 'Account creation failed. The username or email you provided is already in use. Please update your information and try again.');
             }
             return;
         }
 
         showNotification('Account created successfully! Redirecting...', 'success');
         setTimeout(() => {
-            window.location.href = '/pages/sign-in'; // Adjust URL as needed
+            window.location.href = '/pages/sign-in';
         }, 2000);
     } catch (error) {
         showNotification('Connection error: Unable to reach the server. Please check your internet connection.');

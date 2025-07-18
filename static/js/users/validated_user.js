@@ -53,8 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    user_name: usernameOrEmail,
-                    user_password: password,
+                    username: usernameOrEmail,
+                    password: password,
                 }),
             });
 
@@ -65,8 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 showNotification(data.message || 'Login successful!', 'success');
                 // Optional: redirect after success
                 setTimeout(() => {
-                    window.location.href = '/dashboard'; // Adjust URL as needed
-                }, 2000);
+                    window.location.href = '/dashboard';
+                }, 1000);
             } else {
                 // Error from API
                 showNotification(data.message || 'Login failed.', 'error');

@@ -22,7 +22,7 @@ class DatabaseController:
     def exec_select_sql_one_register(self, sql, values):
         try:
             cursor = self.conn.cursor()
-            cursor.execute(sql, (values,))
+            cursor.execute(sql, values)
             return cursor.fetchone()
         except psycopg2.Error as e:
             return Response({'message': f'error: {e}'})
@@ -31,7 +31,7 @@ class DatabaseController:
             cursor = self.conn.cursor()
             cursor.execute(sql,values)
             self.conn.commit()
-            return 
+            return Response({'message': True})
         except psycopg2.Error as e:
             return Response({'message': f'error: {e}'})
 
