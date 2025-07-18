@@ -5,6 +5,8 @@ connectionDB.py
 ajex/template/test
 ajex/template/__pycache__
 api/services/__pycache__
+api/database/__pycache__
 api/user_data/__pycache__
 .env
 project/__pycache__
+sql
