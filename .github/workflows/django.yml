@@ -2,7 +2,7 @@ name: Django CI
 
 on:
   push:
-    branches: [ "main", "dev", "feat/*"]
+    branches: [ "main", "dev"]
   pull_request:
     branches: [ "main" ]
 
@@ -35,4 +35,4 @@ jobs:
         DEBUG: ${{ secrets.DEBUG }}
         
       run: |
-        python manage.py test
+         python manage.py test
