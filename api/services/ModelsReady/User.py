@@ -1,11 +1,16 @@
 import pandas as pd
-from django.http import JsonResponse
 from rest_framework import status
 from rest_framework.response import Response
-from jinja2.utils import Joiner
 
 
-class UserData:
+"""
+-> Classe usuário que fará input do seu dado para transformação, aqui pegará o nome e o arquivo para manipular
+-> em outro local
+"""
+
+class User:
+
+
     def __init__(self, user_data_file,user_data_name):
         self.user_file = user_data_file
         self.name_file = user_data_name

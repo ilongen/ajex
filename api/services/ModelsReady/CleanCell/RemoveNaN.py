@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from django.http import StreamingHttpResponse
 
 
-class ManipulationData:
+class RemoveNaN:
     def __init__(self,df):
         self.df=df
         self.df_backup = None
