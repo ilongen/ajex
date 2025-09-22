@@ -5,7 +5,7 @@ from datetime import datetime
 from django.http import JsonResponse
 
 # DIRS FOR API MODELS READY
-from api.services.ModelsReady import User
+from servermanager.api.services.ModelsReady import DataSheet
 from api.services.ModelsReady.CleanCell import RemoveNaN
 
 # START API
@@ -18,7 +18,7 @@ def model_RemoveNaN(request):
         file=request.POST.get('fileSheet') # File request
         name_file = file.name
         file = file.read()
-        df_transform = User
+        df_transform = DataSheet
         df_optimized = df_transform.get_data()
         # DATAFRAME READ, NOW CLEAR DATA
         sheet_manipulation=RemoveNaN(df_optimized)
