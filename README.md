@@ -23,7 +23,7 @@
    ```bash
    pip install -r requirements.txt
    ```
-3. Rode no servidor de desenvolvimento do django
+3. Rode no servidor de desenvolvimento do django:
    ```bash
    python manage.py runserver
    ```
