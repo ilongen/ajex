@@ -17,6 +17,7 @@
 1. Clone este repositório:
    ```bash
    git clone https://github.com/devlongen/ajex.git
+   cd ajex
    ```
 2. Instale a biblioteca:
 
