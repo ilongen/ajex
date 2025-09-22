@@ -17,7 +17,14 @@
 1. Clone este repositório:
    ```bash
    git clone https://github.com/devlongen/ajex.git
-   pip install -r requirements.txt
-   python manage.py runserver
+   ```
+2. Instale a biblioteca:
 
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Rode no servidor desenvolvimento
+   ```bash
+   python manage.py runserver
+   ```
 
