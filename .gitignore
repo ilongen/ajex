@@ -1,4 +1,6 @@
 servermanager/__pycache__
 servermanager/api/__pycache__
+servermanager/api/services/ModelsReady/__pycache__
+servermanager/api/services/ModelsReady/CleanCell/__pycache__
 .env
 .github
