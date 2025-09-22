@@ -1,2 +1,4 @@
-api/
+servermanager/__pycache__
+servermanager/api/__pycache__
 .env
+.github

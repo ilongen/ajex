@@ -1,62 +1,15 @@
-# 🧼 Ajex – Smart Data Cleaner & Preparer
+🧼 Ajex – Ajustes Inteligentes em Planilhas
 
-**Ajex** is an open-source web tool designed to assist in **data cleaning and manipulation**, particularly for structured datasets in spreadsheet formats like `.csv` and `.xlsx`.
+Ajex é uma aplicação simples que ajuda você a preparar dados estruturados, como planilhas .csv ou .xlsx.
 
----
+🚀 O que faz
 
-## 🚀 What It Does
+Remove valores nulos e linhas vazias automaticamente.
 
-Ajex simplifies the initial steps of data analysis by cleaning and validating your dataset. Here's what it does:
+Gera uma versão limpa dos seus dados, pronta para uso em outras ferramentas.
 
-1. **Structured Data Input**  
-   Accepts spreadsheets in `.csv`, `.xls` or `.xlsx` format.
+Serve como um apoio inicial para quem precisa organizar planilhas antes de análises ou importações.
 
-2. **Automated Cleaning Process**  
-   - Scans all columns for **null values** and **empty rows**.  
-   - Ensures every column is **fully populated** with meaningful data.
+🔮 Futuro
 
-3. **Validation & Segregation**  
-   - Separates the data into two categories:  
-     ✅ **Valid entries** – ready for analysis or import.  
-     ❌ **Invalid entries** – containing missing or unusable information.
-
-4. **Output Delivery**  
-   - Returns a **new, updated spreadsheet** with only clean, valid data.  
-   - Allows the user to continue with further analysis or integration into databases and pipelines.
-
----
-
-## 🧠 Name Meaning
-
-**Ajex** = **Aj** (short for "Ajuste", Portuguese for *Adjustment*) + **Ex** (from *Excel*).  
-The name reflects its core mission: *adjusting Excel-based data for practical use*.
-
----
-
-## 🛠️ Use Cases
-
-- Data preprocessing before import into systems  
-- Preparing datasets for analysis or reporting  
-- Ensuring data quality in automation pipelines
-
----
-
-## 💰 Pricing Model
-
-- Ajex operates on a freemium model:
-
-- Free Tier: Use Ajex at no cost with limited usage quotas to clean and prepare your data.
-
-- Premium Tier: Unlock additional features, higher limits, and priority processing by subscribing after reaching the free usage threshold.
-
----
-
-## 👨‍💻 Developed By
-
-**Devlongen** – Passionate about automation, data, and building tools that simplify complex tasks.
-
----
-
-## 🔗 System Access
-
-[🔗 Click here to access Ajex](http://168.231.100.9)
+Novas formas de manipulação e ajustes padronizados serão adicionadas para tornar o processo ainda mais completo.

@@ -16,12 +16,11 @@ Including another URLconf
 """
 
 from django.urls import path,include
-from project import views
+from servermanager import views
 
 
 urlpatterns = [
     path('', views.index,name='index'),
-    path('api/', include('api.urls')),
-
-    path('models', views.models_ready,name="models_ready"),
+    path('templates/models',views.models_ready,name='models'),
+    #path('servermanager/api/', include('api.urls')),
 ]
