@@ -23,5 +23,5 @@ urlpatterns = [
     path('', views.index,name='index'),
     path('api/', include('api.urls')),
 
-    path('models_ready/', views.models_ready,name="models_ready"),
+    path('models', views.models_ready,name="models_ready"),
 ]

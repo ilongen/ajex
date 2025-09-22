@@ -21,9 +21,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'SECRET-KEY'
 
-DEBUG = config('DEBUG',default=False,cast=bool)
+DEBUG = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -74,21 +74,6 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-# Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'DATABASE_NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT'),
-
-    }
-}
-
 
 
 
@@ -131,7 +116,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'), 
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
