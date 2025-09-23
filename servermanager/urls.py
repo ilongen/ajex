@@ -22,5 +22,4 @@ from servermanager import views
 urlpatterns = [
     path('', views.index,name='index'),
     path('templates/models',views.models_ready,name='models'),
-    #path('servermanager/api/', include('api.urls')),
 ]
