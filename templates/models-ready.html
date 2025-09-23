@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Models Using created Ajex</title>
+    <title>Modelos</title>
 </head>
 <body>
-    <h1>Select your model ready for use</h1>
-    <form action="v1/models/RemoveNaN" method="post"></form>
-    <input type="file" name="file" id="file">
-    <input type="submit" value="OK">
+    <h1>Selecione o modelo que deseja usar.</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="file" name="file" id="file">
+        <input type="submit" value="OK">
+    </form>
 </body>
 </html>
