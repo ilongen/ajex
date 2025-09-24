@@ -6,11 +6,6 @@
 </head>
 <body>
     <h1>Selecione o modelo que deseja usar.</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="file" name="file" id="file">
-        <input type="submit" value="OK">
-    </form>
+    <a href="{% url 'cleancell' %}">Limpador de Células</a>
 </body>
 </html>

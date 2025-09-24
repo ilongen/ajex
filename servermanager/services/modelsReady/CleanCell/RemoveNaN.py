@@ -66,8 +66,8 @@ class RemoveNaN:
             buffer_output.seek(0)
             buffer_except.seek(0)
 
-            zf.writestr("data_output.xlsx", buffer_output.read())
-            zf.writestr("data_exception.xlsx", buffer_except.read())
+            zf.writestr("dados_ajustado.xlsx", buffer_output.read())
+            zf.writestr("dados_inconsistentes.xlsx", buffer_except.read())
 
         zip_buffer.seek(0)
         # Work on the http method to variable response return value pro frontend
@@ -75,6 +75,6 @@ class RemoveNaN:
             zip_buffer,
             content_type="application/zip"
         )
-        response['Content-Disposition'] = 'attachment; filename="data_compact.zip"'
+        response['Content-Disposition'] = 'attachment; filename="dados_compactados.zip"'
 
         return response

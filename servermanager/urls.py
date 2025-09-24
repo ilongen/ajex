@@ -17,10 +17,12 @@ Including another URLconf
 
 from django.urls import path
 from servermanager import views
-
+from django.contrib import admin
 
 urlpatterns = [
     path('', views.index,name='index'),
+    #path('admin/',admin.site.urls),
     path('templates/models',views.models_ready,name='models'),
-    path('post',views.postForm,name='post')
+    path('templates/cleancell',views.cleanCeLL,name='cleancell'),
+    path('post',views.postForm,name='postdata')
 ]

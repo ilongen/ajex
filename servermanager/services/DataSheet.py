@@ -1,7 +1,5 @@
 import pandas as pd
-from rest_framework import status
-from rest_framework.response import Response
-
+from django.http import HttpResponse
 
 """
 -> Classe usuário que fará input do seu dado para transformação, aqui pegará o nome e o arquivo para manipular
@@ -10,30 +8,27 @@ from rest_framework.response import Response
 
 class DataSheet:
 
-    def __init__(self, data_file,data_name):
-        self.data = data_file
-        self.name = data_name
+    def __init__(self, data_input):
+        self.data = data_input
 
-    def get_data(self):
+    def get_sheet(self):
         data = self.data
-        name = self.name
-        return data,name
+        return data
         
 
-    def set_data(self,data_file,name_file):
+    def set_sheet(self,data_file):
         self.data = data_file
-        self.name = name_file
         return True
     
-    def is_data(self):
+    def is_sheet(self):
         try:
-            if self.name.endswith('.xlsx'):
+            if self.data.name.endswith('.xlsx') or self.data.name.endswith('.xls'):
                 return pd.read_excel(self.data)
-            elif self.name.endswith('.csv'):
+            elif self.data.name.endswith('.csv'):
                 return pd.read_csv(self.data,delimiter=",")
             else:
                 msg="Not type support"
-                return Response(msg,status=status.HTTP_400_BAD_REQUEST)
+                return HttpResponse(msg)
         except:
             msg = "Spreadsheet was not transformed into a dataframe, check the spreadsheet you sent! Intern Server Erro"
-            return Response({"messageError": msg})
+            return HttpResponse(msg)
