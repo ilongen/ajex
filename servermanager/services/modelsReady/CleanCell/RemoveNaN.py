@@ -33,7 +33,7 @@ class RemoveNaN:
         return self.listDictNA
     
     def delet_cell(self):
-        porc_column_min = self.n_columns * 0.02
+        porc_column_min = self.n_columns * 0.05
         count_row=0
         row_now = None
         for item in self.listDictNA:

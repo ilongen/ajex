@@ -17,9 +17,9 @@ def cleanCeLL(request):
 def postForm(request):
     # Request received from frontend
     if request.method == 'POST':
-        inputfile = request.FILES.get('inputFile')
-        data=DataSheet(data_input=inputfile)
         try:
+            inputfile = request.FILES.get('inputFile')
+            data=DataSheet(data_input=inputfile)
             df = data.is_sheet()
             sheetEnd = RemoveNaN(df=df)
             sheetEnd.value_cells_isnan()
@@ -28,6 +28,6 @@ def postForm(request):
             download_file = sheetEnd.download_zip()
             return download_file
         except Exception as e:
-            return HttpResponse(f'Servidor não conseguiu processador os dados devido a: {e}')
+            raise e
     else:
-        return HttpResponse('Não foi possível limpar...')
+        return HttpResponse('Erro de servidor interno: O arquivo não foi limpo, função não executou de maneira esperada.')

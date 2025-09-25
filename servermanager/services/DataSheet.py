@@ -23,12 +23,12 @@ class DataSheet:
     def is_sheet(self):
         try:
             if self.data.name.endswith('.xlsx') or self.data.name.endswith('.xls'):
-                return pd.read_excel(self.data)
+                transform_csv = pd.read_excel(self.data)
+                transform_csv.to_csv(index=False)
+                return transform_csv
             elif self.data.name.endswith('.csv'):
                 return pd.read_csv(self.data,delimiter=",")
             else:
-                msg="Not type support"
-                return HttpResponse(msg)
-        except:
-            msg = "Spreadsheet was not transformed into a dataframe, check the spreadsheet you sent! Intern Server Erro"
-            return HttpResponse(msg)
+                raise ValueError("O tipo de arquivo não suportado.")
+        except Exception as e:
+            raise e

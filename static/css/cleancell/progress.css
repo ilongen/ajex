@@ -1,0 +1,229 @@
+/* Container do formulário */
+.form-container {
+    max-width: 500px;
+    width: 90%;
+    margin: 50px auto;
+    padding: clamp(1.5rem, 5vw, 3rem);
+    background: #2B2D42;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(43, 45, 66, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 3vw, 2rem);
+    color: #F5F5F5;
+    transition: all 0.3s ease;
+}
+
+/* H1 Mensagem */
+.message-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    text-align: center;
+    color: #FFFFFF; /* branco */
+    animation: fadeInUp 1s ease forwards;
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* Subtítulo opcional abaixo da mensagem */
+.message-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 500;
+    text-align: center;
+    color: #D4D4D4;
+    opacity: 0;
+    animation: fadeIn 1.2s ease forwards;
+    animation-delay: 0.8s;
+    margin-bottom: clamp(1.5rem, 2vw, 2rem);
+}
+
+/* Label do arquivo */
+.file-label {
+    display: block;
+    padding: clamp(0.8rem, 2vw, 1.2rem);
+    background: linear-gradient(90deg, #6B3FA0, #5A3391);
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-label:hover {
+    background: linear-gradient(90deg, #5A3391, #4A2A82);
+    box-shadow: 0 5px 15px rgba(107, 63, 160, 0.3);
+}
+
+/* Input file escondido */
+#inputFile {
+    display: none;
+}
+
+/* Wrapper do input de arquivo */
+.file-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+/* Nome do arquivo selecionado */
+.file-name {
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    color: #D4D4D4;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Centralizar botão submit */
+.submit-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* Botão submit */
+.submit-btn {
+    padding: clamp(0.7rem, 1.5vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+    background: linear-gradient(90deg, #6B3FA0, #5A3391);
+    color: #F5F5F5;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(90deg, #5A3391, #4A2A82);
+    box-shadow: 0 5px 15px rgba(107, 63, 160, 0.3);
+}
+
+/* Link voltar */
+.back-link {
+    text-decoration: none;
+    color: #40C4FF;
+    font-weight: 500;
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    transition: color 0.2s ease;
+}
+
+.back-link:hover {
+    color: #82D4FF;
+}
+
+/* Barra de progresso */
+.progress-container {
+    width: 100%;
+    height: clamp(20px, 2.5vw, 25px);
+    background: #3A3C5A;
+    border-radius: 15px;
+    overflow: hidden;
+    display: none;
+    position: relative;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #6B3FA0, #5A3391, #6B3FA0);
+    background-size: 300% 100%;
+    border-radius: 15px;
+    transition: width linear;
+    animation: gradientMove 2s ease infinite, pulse 1.5s ease-in-out infinite;
+    position: relative;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -50px;
+    width: 50px; height: 100%;
+    background: rgba(255,255,255,0.3);
+    transform: skewX(-20deg);
+    animation: shine 1.5s linear infinite;
+}
+
+.progress-bar span {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: #F5F5F5;
+    font-weight: 600;
+    line-height: clamp(20px, 2.5vw, 25px);
+    pointer-events: none;
+    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+}
+
+/* Animações */
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(1.05); }
+}
+
+@keyframes shine {
+    0% { left: -50px; }
+    100% { left: 100%; }
+}
+
+/* Ultra responsivo */
+@media (max-width: 768px) {
+    .form-container {
+        padding: clamp(1rem, 5vw, 2rem);
+        margin: 30px auto;
+    }
+
+    .submit-btn, .file-label {
+        font-size: clamp(0.85rem, 2vw, 1rem);
+    }
+
+    .progress-bar span {
+        font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        padding: clamp(0.8rem, 5vw, 1.5rem);
+        margin: 20px auto;
+    }
+
+    .submit-btn, .file-label {
+        font-size: clamp(0.8rem, 2vw, 0.95rem);
+        padding: clamp(0.6rem, 1.5vw, 0.85rem) clamp(1.2rem, 3vw, 1.5rem);
+    }
+
+    .progress-container {
+        height: clamp(15px, 3vw, 20px);
+    }
+
+    .progress-bar span {
+        font-size: clamp(0.65rem, 1.5vw, 0.8rem);
+    }
+}
