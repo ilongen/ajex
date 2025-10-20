@@ -1,178 +1,34 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/index/style.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <title>Ajex</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <title>Ajex - 2025</title>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-links" style="--i: 1;">
-                <a href="templates/models" style="--i: 1;">Modelos</a>
-                <a href="#docs" style="--i: 4;">Documentação</a>
-            </div>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
-    </header>
+    <div class="form-container">
+        <h1 class="message-title">
+            Encaminhe seus dados estrutrados! Iremos identificar padrão e ajustar conforme necessário.
+        </h1>
+        <p class="message-subtitle">
+            Selecione abaixo e clique em "Refatoração".
+        </p>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1 class="hero-title">Dados Limpos, Insights Claros</h1>
-                <p class="hero-subtitle">Transforme seus conjuntos de dados com a limpeza e validação automatizada do Ajex, entregando dados prontos para análise em segundos.</p>
-                <a href="{% url 'models' %}" class="hero-cta">Comece Agora</a>
-            </div>
-            <div class="hero-image">
-                <img src="{% static 'images/pexels-goumbik-577195.jpg' %}" alt="Painel de Visualização de Dados">
-            </div>
-        </section>
+        <form action="{% url 'postdata' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
 
-        <section class="use-cases" id="use-cases">
-            <h2 class="section-title">Onde o Ajex Pode Ser Usado</h2>
-            <p class="section-subtitle">O Ajex agiliza a preparação de dados para diversos setores e aplicações.</p>
-            <div class="use-case-grid">
-                <div class="use-case-item">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Ciência de Dados</h3>
-                    <p>Prepare conjuntos de dados para modelos de machine learning removendo valores nulos e garantindo consistência nos dados.</p>
-                </div>
-                <div class="use-case-item">
-                    <i class="fas fa-briefcase"></i>
-                    <h3>Analytics de Negócios</h3>
-                    <p>Limpe e valide dados de vendas, clientes ou operações para relatórios precisos e tomada de decisão.</p>
-                </div>
-                <div class="use-case-item">
-                    <i class="fas fa-database"></i>
-                    <h3>Integração de Dados</h3>
-                    <p>Garanta dados limpos para integração em bancos de dados, pipelines ETL ou data warehouses.</p>
-                </div>
-                <div class="use-case-item">
-                    <i class="fas fa-flask"></i>
-                    <h3>Pesquisa</h3>
-                    <p>Processar dados experimentais ou de pesquisas para eliminar erros e preparar para análises estatísticas.</p>
-                </div>
+            <div class="file-input-wrapper">
+                <label for="inputFile" class="file-label">Escolher arquivo para anexar.</label>
+                <input type="file" name="file" id="file" accept=".xlsx,.xls,.csv,.json">
+                <span class="file-name" id="filename">Nenhum arquivo selecionado</span>
             </div>
-        </section>
 
-        <section class="benefits" id="benefits">
-            <h2 class="section-title">Benefícios de Usar o Ajex</h2>
-            <p class="section-subtitle">Descubra por que o Ajex é a escolha preferida dos profissionais de dados.</p>
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <i class="fas fa-bolt"></i>
-                    <h3>Processamento Rápido</h3>
-                    <p>Limpe e valide dados em segundos com nossas ferramentas automatizadas.</p>
-                </div>
-                <div class="benefit-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Seguro</h3>
-                    <p>Seus dados estão protegidos com criptografia padrão do setor.</p>
-                </div>
-                <div class="benefit-item">
-                    <i class="fas fa-smile"></i>
-                    <h3>Fácil de Usar</h3>
-                    <p>Interface intuitiva projetada para usuários de todos os níveis.</p>
-                </div>
-                <div class="benefit-item">
-                    <i class="fas fa-rocket"></i>
-                    <h3>Escalável</h3>
-                    <p>Trate conjuntos de dados de qualquer tamanho, de arquivos pequenos a dados corporativos.</p>
-                </div>
+            <div class="submit-wrapper">
+                <button type="submit" class="submit-btn">Refatoração</button>
             </div>
-        </section>
-
-        <section class="how-to-use" id="how-to-use">
-            <h2 class="section-title">Comece a Usar o Ajex em 3 Passos Simples</h2>
-            <p class="section-subtitle">Limpe e valide seus dados rapidamente com nosso processo intuitivo.</p>
-            <div class="steps-grid">
-                <div class="step-item">
-                    <span class="step-number">1</span>
-                    <h3>Envie Seus Dados</h3>
-                    <p>Importe sua planilha nos formatos .csv, .xls ou .xlsx.</p>
-                </div>
-                <div class="step-item">
-                    <span class="step-number">2</span>
-                    <h3>Limpeza Automática</h3>
-                    <p>O Ajex identifica valores nulos e linhas vazias, garantindo dados completos e válidos.</p>
-                </div>
-                <div class="step-item">
-                    <span class="step-number">3</span>
-                    <h3>Baixe ou Integre</h3>
-                    <p>Receba uma planilha limpa ou integre diretamente aos seus fluxos de trabalho.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="help-channels" id="docs">
-            <h2 class="section-title">Precisa de Ajuda? Estamos Aqui para Você</h2>
-            <p class="section-subtitle">Explore nossos recursos ou entre em contato para suporte.</p>
-            <div class="help-grid">
-                <div class="help-item">
-                    <i class="fas fa-book"></i>
-                    <h3>Documentação</h3>
-                    <p>Guias e tutoriais completos para dominar o Ajex.</p>
-                    <a href="/docs" class="help-cta">Ler Documentação</a>
-                </div>
-                <div class="help-item">
-                    <i class="fas fa-question-circle"></i>
-                    <h3>Perguntas Frequentes</h3>
-                    <p>Encontre respostas para dúvidas comuns sobre o uso do Ajex.</p>
-                    <a href="/docs/faq" class="help-cta">Ver FAQs</a>
-                </div>
-                <div class="help-item">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Suporte</h3>
-                    <p>Receba assistência personalizada da nossa equipe de suporte.</p>
-                    <a href="/support" class="help-cta">Contate-Nos</a>
-                </div>
-            </div>
-        </section>
-
-        <div class="content-list" id="content-list">
-            <div class="content-item">Visão Geral do Produto</div>
-            <div class="content-item">Sobre Nossa Equipe</div>
-            <div class="content-item">Por Que Escolher-nos</div>
-            <div class="content-item">Guia de Documentação</div>
-        </div>
-    </main>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-links">
-                <h3>Links Rápidos</h3>
-                <a href="#models">Modelos</a>
-                <a href="#about">Sobre Nós</a>
-                <a href="#why-ajex">Por Que Ajex</a>
-                <a href="#docs">Documentação</a>
-            </div>
-            <div class="footer-newsletter">
-                <h3>Mantenha-se Atualizado</h3>
-                <p>Inscreva-se em nossa newsletter para receber as últimas atualizações.</p>
-                <div class="newsletter-input">
-                    <input type="email" placeholder="Digite seu email">
-                    <button class="newsletter-btn">Inscrever</button>
-                </div>
-            </div>
-            <div class="footer-social">
-                <h3>Siga-nos</h3>
-                <div class="social-icons">
-                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Ajex. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <script src="{% static 'js/index/script.js' %}"></script>
+        </form>
+    </div>
 </body>
 </html>
