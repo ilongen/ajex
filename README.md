@@ -1,6 +1,6 @@
 # 🧼 Ajex – Ajustes Inteligentes em Planilhas
 
-**Ajex** é uma aplicação simples que ajuda você a preparar dados estruturados, que retrata com mapeando e organização desses dados para uso posterior.
+**Ajex** é uma aplicação simples que ajuda você a preparar dados estruturados, que retrata com mapeamento e reorganização desses dados para uso posterior.
 
 ## 🚀 Funcionalidades
 
